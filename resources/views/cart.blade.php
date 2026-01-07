@@ -22,22 +22,22 @@
 		<link href="{{ asset('assets/css/fontawesome.min.css') }}" rel="stylesheet">
 		<link href="{{ asset('assets/css/tiny-slider.css') }}" rel="stylesheet">
 			<link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-			<title>Furni Free Bootstrap 5 Template for Furniture and Interior Design Websites by Untree.co </title>
+			<title>tendakian — Furniture Store</title>
 	</head>
 
 	<body>
 
 		<!-- Start Header/Navigation -->
-		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+			<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="tendakian navigation bar">
 
 			<div class="container">
-				<a class="navbar-brand" href="{{ url('/') }}">Furni<span>.</span></a>
+				<a class="navbar-brand" href="{{ url('/') }}">tendakian<span>.</span></a>
 
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsTendakian" aria-controls="navbarsTendakian" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
-				<div class="collapse navbar-collapse" id="navbarsFurni">
+				<div class="collapse navbar-collapse" id="navbarsTendakian">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
 						<li class="nav-item ">
 							<a class="nav-link" href="{{ url('/') }}">Home</a>
@@ -50,7 +50,7 @@
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<li><a class="nav-link" href="#"><img src="{{ asset('assets/images/user.svg') }}"></a></li>
+<li><a class="nav-link" href="{{ route('profile') }}"><img src="{{ asset('assets/images/user.svg') }}"></a></li>
 						<li><a class="nav-link" href="{{ url('/cart') }}"><img src="{{ asset('assets/images/cart.svg') }}"></a></li>
 					</ul>
 				</div>
@@ -108,21 +108,6 @@
 											<tbody>
 												@php
 													$subtotal = 0;
-													// Map product ids to images; add entries as needed
-													$productImages = [
-														'nordic-chair-1' => 'assets/images/product-1.png',
-														'nordic-chair-2' => 'assets/images/product-1.png',
-														'nordic-chair-3' => 'assets/images/product-3.png',
-														'nordic-chair-4' => 'assets/images/product-1.png',
-														'nordic-chair-5' => 'assets/images/product-3.png',
-														'nordic-chair-6' => 'assets/images/product-1.png',
-														'kruzo-aero-1'   => 'assets/images/product-2.png',
-														'kruzo-aero-2'   => 'assets/images/product-2.png',
-														'kruzo-aero-3'   => 'assets/images/product-2.png',
-														'ergonomic-chair-1' => 'assets/images/product-3.png',
-														'ergonomic-chair-2' => 'assets/images/product-3.png',
-														'ergonomic-chair-3' => 'assets/images/product-3.png',
-													];
 												@endphp
 
 												@if(empty($cart) || count($cart) === 0)
@@ -131,10 +116,21 @@
 													</tr>
 												@else
 													@foreach($cart as $item)
-														@php
+															@php
 															$lineTotal = $item['qty'] * $item['price'];
 															$subtotal += $lineTotal;
-															$img = isset($productImages[$item['id']]) ? $productImages[$item['id']] : 'assets/images/product-1.png';
+															$img = 'assets/images/product-1.png';
+															// If the id is numeric and a Product exists, prefer its image
+															if (is_numeric($item['id'])) {
+																$p = \App\Models\Product::find($item['id']);
+																if ($p) {
+																	if (!empty($p->image) && \Illuminate\Support\Facades\Storage::disk('public')->exists($p->image)) {
+																		$img = asset('storage/'.$p->image);
+																	} else {
+																		$img = 'https://source.unsplash.com/240x160/?camping,gear';
+																	}
+																}
+															}
 														@endphp
 														<tr data-item-id="{{ $item['id'] }}">
 															<td class="product-thumbnail">
@@ -197,11 +193,11 @@
 												</div>
                       </div>
         
-                      <div class="row">
-                        <div class="col-md-12">
-                          <button class="btn btn-black btn-lg py-3 btn-block" onclick="window.location='checkout.html'">Proceed To Checkout</button>
-                        </div>
-                      </div>
+											<div class="row">
+												<div class="col-md-12">
+													<a href="{{ url('/checkout') }}" class="btn btn-black btn-lg py-3 btn-block">Proceed To Checkout</a>
+												</div>
+											</div>
                     </div>
                   </div>
                 </div>
@@ -243,7 +239,7 @@
 
 				<div class="row g-5 mb-5">
 					<div class="col-lg-4">
-						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Furni<span>.</span></a></div>
+						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">tendakian<span>.</span></a></div>
 						<p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant</p>
 
 						<ul class="list-unstyled custom-social">

@@ -21,22 +21,22 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 		<link href="{{ asset('assets/css/tiny-slider.css') }}" rel="stylesheet">
 		<link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-		<title>Furni Free Bootstrap 5 Template for Furniture and Interior Design Websites by Untree.co </title>
+			<title>tendakian — Home</title>
 	</head>
 
 	<body>
 
 		<!-- Start Header/Navigation -->
-		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+			<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="tendakian navigation bar">
 
 			<div class="container">
-				<a class="navbar-brand" href="{{ url('/') }}">Furni<span>.</span></a>
+				<a class="navbar-brand" href="{{ url('/') }}">tendakian<span>.</span></a>
 
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsTendakian" aria-controls="navbarsTendakian" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
-				<div class="collapse navbar-collapse" id="navbarsFurni">
+				<div class="collapse navbar-collapse" id="navbarsTendakian">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
 						<li class="nav-item active">
 							<a class="nav-link" href="{{ url('/') }}">Home</a>
@@ -49,7 +49,7 @@
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<li><a class="nav-link" href="#"><img src="{{ asset('assets/images/user.svg') }}"></a></li>
+<li><a class="nav-link" href="{{ route('profile') }}"><img src="{{ asset('assets/images/user.svg') }}"></a></li>
 						<li><a class="nav-link" href="{{ url('/cart') }}"><img src="{{ asset('assets/images/cart.svg') }}" ></a></li>
 					</ul>
 				</div>
@@ -64,14 +64,14 @@
 					<div class="row justify-content-between">
 						<div class="col-lg-5">
 							<div class="intro-excerpt">
-								<h1>Modern Interior <span clsas="d-block">Design Studio</span></h1>
-								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-								<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+								<h1>Tendakian — Outdoor Gear Rental</h1>
+								<p class="mb-4">Sewa perlengkapan outdoor: tenda, ransel, kompor, sleeping bag, dan lainnya. Praktis untuk petualangan Anda.</p>
+								<p><a href="{{ url('/shop') }}" class="btn btn-secondary me-2">Shop Now</a><a href="{{ url('/services') }}" class="btn btn-white-outline">Explore</a></p>
 							</div>
 						</div>
 						<div class="col-lg-7">
 							<div class="hero-img-wrap">
-								<img src="{{ asset('assets/images/couch.png') }}" class="img-fluid">
+								<img src="https://picsum.photos/1200/700?random=1&camping" class="img-fluid" alt="Outdoor Camping">
 							</div>
 						</div>
 					</div>
@@ -86,7 +86,7 @@
 
 					<!-- Start Column 1 -->
 					<div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
-						<h2 class="mb-4 section-title">Crafted with excellent material.</h2>
+						<h2 class="mb-4 section-title">Go outside and explore.</h2>
 						<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. </p>
 						<p><a href="{{ asset('shop') }}" class="btn">Explore</a></p>
 					</div> 
@@ -95,7 +95,7 @@
 					<!-- Start Column 2 -->
 					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
 						<a class="product-item" href="{{ asset('cart') }}">
-							<img src="{{ asset('assets/images/product-1.png') }}" class="img-fluid product-thumbnail">
+							<img src="https://source.unsplash.com/600x400/?camping,tent" class="img-fluid product-thumbnail" alt="Camp Tent">
 							<h3 class="product-title">Nordic Chair</h3>
 							<strong class="product-price">$50.00</strong>
 
@@ -109,7 +109,7 @@
 					<!-- Start Column 3 -->
 					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
 						<a class="product-item" href="{{ asset('cart') }}">
-							<img src="{{ asset('assets/images/product-2.png') }}" class="img-fluid product-thumbnail">
+							<img src="https://source.unsplash.com/600x400/?backpack,gear" class="img-fluid product-thumbnail" alt="Backpack">
 							<h3 class="product-title">Kruzo Aero Chair</h3>
 							<strong class="product-price">$78.00</strong>
 
@@ -123,7 +123,7 @@
 					<!-- Start Column 4 -->
 					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
 						<a class="product-item" href="{{ asset('cart') }}">
-							<img src="{{ asset('assets/images/product-3.png') }}" class="img-fluid product-thumbnail">
+							<img src="https://source.unsplash.com/600x400/?camping,stove,boots" class="img-fluid product-thumbnail" alt="Camping Gear">
 							<h3 class="product-title">Ergonomic Chair</h3>
 							<strong class="product-price">$43.00</strong>
 
@@ -465,7 +465,7 @@
 
 				<div class="row g-5 mb-5">
 					<div class="col-lg-4">
-						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Furni<span>.</span></a></div>
+						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">tendakian<span>.</span></a></div>
 						<p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant</p>
 
 						<ul class="list-unstyled custom-social">

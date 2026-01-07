@@ -21,22 +21,22 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 		<link href="{{ asset('assets/css/tiny-slider.css') }}" rel="stylesheet">
 		<link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-		<title>Furni Free Bootstrap 5 Template for Furniture and Interior Design Websites by Untree.co </title>
+			<title>tendakian — Shop</title>
 	</head>
 
 	<body>
 
 		<!-- Start Header/Navigation -->
-		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+			<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="tendakian navigation bar">
 
 			<div class="container">
-				<a class="navbar-brand" href="{{ url('/') }}">Furni<span>.</span></a>
+				<a class="navbar-brand" href="{{ url('/') }}">tendakian<span>.</span></a>
 
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsTendakian" aria-controls="navbarsTendakian" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
-				<div class="collapse navbar-collapse" id="navbarsFurni">
+				<div class="collapse navbar-collapse" id="navbarsTendakian">
 					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
 						<li class="nav-item ">
 							<a class="nav-link" href="{{ url('/') }}">Home</a>
@@ -49,7 +49,7 @@
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-						<li><a class="nav-link" href="#"><img src="{{ asset('assets/images/user.svg') }}"></a></li>
+<li><a class="nav-link" href="{{ route('profile') }}"><img src="{{ asset('assets/images/user.svg') }}"></a></li>
 						<li><a class="nav-link" href="{{ asset('cart') }}"><img src="{{ asset('assets/images/cart.svg') }}"></a></li>
 					</ul>
 				</div>
@@ -58,7 +58,7 @@
 		</nav>
 		<!-- End Header/Navigation -->
 
-		@if(session('success'))
+			@if(session('success'))
 			<div class="container page-alert mt-3">
 				<div class="alert alert-success">{{ session('success') }}</div>
 			</div>
@@ -88,134 +88,27 @@
 
 		
 
-		<div class="untree_co-section product-section before-footer-section">
+			<div class="untree_co-section product-section before-footer-section">
 		    <div class="container">
 		      	<div class="row">
+				@foreach($products as $product)
+				<div class="col-12 col-md-4 col-lg-3 mb-5">
+					<div class="product-item">
+						<a href="{{ route('product.show', ['id' => $product->id]) }}">
+						@if(!empty($product->image) && \Illuminate\Support\Facades\Storage::disk('public')->exists($product->image))
+							<img src="{{ asset('storage/'.$product->image) }}" class="img-fluid product-thumbnail">
+						@else
+							<img src="https://source.unsplash.com/600x400/?camping,backpack,tent,gear" class="img-fluid product-thumbnail" alt="{{ $product->name }}">
+						@endif
+						<h3 class="product-title">{{ $product->name }}</h3>
+						<strong class="product-price">${{ number_format($product->price,2) }}</strong>
 
-		      		<!-- Start Column 1 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="{{ url('/cart/add') }}?id=nordic-chair-3&name={{ urlencode('Nordic Chair') }}&price=50.00">
-							<img src="{{ asset('assets/images/product-3.png') }}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Nordic Chair</h3>
-							<strong class="product-price">$50.00</strong>
-
-							<span class="icon-cross">
-								<img src="{{ asset('assets/images/cross.svg') }}" class="img-fluid">
-							</span>
-						</a>
-                            
-
-
-					</div> 
-					<!-- End Column 1 -->
-						
-					<!-- Start Column 2 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="{{ url('/cart/add') }}?id=nordic-chair-4&name={{ urlencode('Nordic Chair') }}&price=50.00">
-							<img src="{{ asset('assets/images/product-1.png') }}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Nordic Chair</h3>
-							<strong class="product-price">$50.00</strong>
-
-							<span class="icon-cross">
-								<img src="{{ asset('assets/images/cross.svg') }}" class="img-fluid">
-							</span>
-						</a>
-                            
-
-
-					</div> 
-					<!-- End Column 2 -->
-
-					<!-- Start Column 3 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="{{ url('/cart/add') }}?id=kruzo-aero-2&name={{ urlencode('Kruzo Aero Chair') }}&price=78.00">
-							<img src="{{ asset('assets/images/product-2.png') }}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Kruzo Aero Chair</h3>
-							<strong class="product-price">$78.00</strong>
-
-							<span class="icon-cross">
-								<img src="{{ asset('assets/images/cross.svg') }}" class="img-fluid">
-							</span>
-						</a>
-                            
-
-
+						<div class="mt-3 d-flex justify-content-center">
+							<a class="btn btn-sm btn-primary" href="{{ route('cart.add.get', ['id' => $product->id, 'name' => $product->name, 'price' => number_format($product->price,2,'.','')]) }}">Add to cart</a>
+						</div>
 					</div>
-					<!-- End Column 3 -->
-
-					<!-- Start Column 4 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="{{ url('/cart/add') }}?id=ergonomic-chair-2&name={{ urlencode('Ergonomic Chair') }}&price=43.00">
-							<img src="{{ asset('assets/images/product-3.png') }}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Ergonomic Chair</h3>
-							<strong class="product-price">$43.00</strong>
-
-							<span class="icon-cross">
-								<img src="{{ asset('assets/images/cross.svg') }}" class="img-fluid">
-							</span>
-						</a>
-                            
-
-
-					</div>
-					<!-- End Column 4 -->
-
-
-					<!-- Start Column 1 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="{{ url('/cart/add') }}?id=nordic-chair-5&name={{ urlencode('Nordic Chair') }}&price=50.00">
-							<img src="{{ asset('assets/images/product-3.png') }}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Nordic Chair</h3>
-							<strong class="product-price">$50.00</strong>
-
-							<span class="icon-cross">
-								<img src="{{ asset('assets/images/cross.svg') }}" class="img-fluid">
-							</span>
-						</a>
-					</div> 
-					<!-- End Column 1 -->
-						
-					<!-- Start Column 2 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="{{ url('/cart/add') }}?id=nordic-chair-6&name={{ urlencode('Nordic Chair') }}&price=50.00">
-							<img src="{{ asset('assets/images/product-1.png') }}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Nordic Chair</h3>
-							<strong class="product-price">$50.00</strong>
-
-							<span class="icon-cross">
-								<img src="{{ asset('assets/images/cross.svg') }}" class="img-fluid">
-							</span>
-						</a>
-					</div> 
-					<!-- End Column 2 -->
-
-					<!-- Start Column 3 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="{{ url('/cart/add') }}?id=kruzo-aero-3&name={{ urlencode('Kruzo Aero Chair') }}&price=78.00">
-							<img src="{{ asset('assets/images/product-2.png') }}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Kruzo Aero Chair</h3>
-							<strong class="product-price">$78.00</strong>
-
-							<span class="icon-cross">
-								<img src="{{ asset('assets/images/cross.svg') }}" class="img-fluid">
-							</span>
-						</a>
-					</div>
-					<!-- End Column 3 -->
-
-					<!-- Start Column 4 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5">
-						<a class="product-item" href="{{ url('/cart/add') }}?id=ergonomic-chair-3&name={{ urlencode('Ergonomic Chair') }}&price=43.00">
-							<img src="{{ asset('assets/images/product-3.png') }}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Ergonomic Chair</h3>
-							<strong class="product-price">$43.00</strong>
-
-							<span class="icon-cross">
-								<img src="{{ asset('assets/images/cross.svg') }}" class="img-fluid">
-							</span>
-						</a>
-					</div>
-					<!-- End Column 4 -->
+				</div>
+				@endforeach
 
 		      	</div>
 		    </div>
@@ -255,7 +148,7 @@
 
 				<div class="row g-5 mb-5">
 					<div class="col-lg-4">
-						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Furni<span>.</span></a></div>
+						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">tendakian<span>.</span></a></div>
 						<p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant</p>
 
 						<ul class="list-unstyled custom-social">
