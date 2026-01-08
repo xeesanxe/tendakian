@@ -156,7 +156,17 @@
               Guest User
             @endif
           </h1>
-          <p class="mb-0 opacity-75">Welcome to your profile</p>
+          <div class="d-flex align-items-center gap-3">
+            <p class="mb-0 opacity-75">Welcome to your profile</p>
+            @if(auth()->check())
+              <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="btn btn-sm btn-outline-light">
+                  Logout
+                </button>
+              </form>
+            @endif
+          </div>
         </div>
       </div>
     </div>
@@ -230,7 +240,7 @@
               <div class="cart-summary">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                   <span class="fs-5 fw-semibold">Subtotal</span>
-                  <span class="fs-4 fw-bold text-success">${{ number_format($subtotal, 2) }}</span>
+                  <span class="fs-4 fw-bold text-success">Rp {{ number_format($subtotal, 0, ',', '.') }}</span>
                 </div>
                 <a href="/checkout" class="btn btn-checkout btn-primary w-100">
                   <svg width="16" height="16" fill="currentColor" class="me-2" viewBox="0 0 16 16">
@@ -267,7 +277,7 @@
                         </span>
                       </div>
                       <div class="d-flex justify-content-between align-items-center mb-3">
-                        <span class="text-success fw-bold fs-5">${{ number_format($order->total, 2) }}</span>
+                        <span class="text-success fw-bold fs-5">Rp {{ number_format($order->total, 0, ',', '.') }}</span>
                         <small class="text-muted">{{ $order->created_at->format('M d, Y H:i') }}</small>
                       </div>
                       <ul class="list-unstyled mb-2">
@@ -276,7 +286,7 @@
                             <svg width="12" height="12" fill="currentColor" viewBox="0 0 16 16" class="me-1">
                               <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
                             </svg>
-                            {{ $it->product->name ?? 'Item #' . $it->product_id }} × {{ $it->qty }} — ${{ number_format($it->price, 2) }}
+                            {{ $it->product->name ?? 'Item #' . $it->product_id }} × {{ $it->qty }} — Rp {{ number_format($it->price, 0, ',', '.') }}
                           </li>
                         @endforeach
                       </ul>
@@ -297,7 +307,7 @@
                 <svg width="20" height="20" fill="currentColor" class="me-2" viewBox="0 0 16 16">
                   <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                 </svg>
-                Please <a href="#" class="alert-link fw-semibold">login</a> to see your order history.
+                Please <a href="/login" class="alert-link fw-semibold">login</a> to see your order history.
               </div>
             @endif
           </div>

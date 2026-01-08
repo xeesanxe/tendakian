@@ -71,8 +71,7 @@
 						</div>
 						<div class="col-lg-7">
 							<div class="hero-img-wrap">
-								<img src="https://picsum.photos/1200/700?random=1&camping" class="img-fluid" alt="Outdoor Camping">
-							</div>
+<img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1200&h=700&fit=crop" class="img-fluid" alt="Camping Tent Outdoor">							</div>
 						</div>
 					</div>
 				</div>
@@ -93,46 +92,43 @@
 					<!-- End Column 1 -->
 
 					<!-- Start Column 2 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-						<a class="product-item" href="{{ asset('cart') }}">
-							<img src="https://source.unsplash.com/600x400/?camping,tent" class="img-fluid product-thumbnail" alt="Camp Tent">
-							<h3 class="product-title">Nordic Chair</h3>
-							<strong class="product-price">$50.00</strong>
+<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+    <a class="product-item" href="{{ asset('cart') }}">
+        <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&h=400&fit=crop" class="img-fluid product-thumbnail" alt="Camp Tent">
+        <h3 class="product-title">Nordic Chair</h3>
+        <strong class="product-price">Rp 50.000</strong>
+        <span class="icon-cross">
+            <img src="{{ asset('assets/images/cross.svg') }}" class="img-fluid">
+        </span>
+    </a>
+</div> 
+<!-- End Column 2 -->
 
-							<span class="icon-cross">
-								<img src="{{ asset('assets/images/cross.svg') }}" class="img-fluid">
-							</span>
-						</a>
-					</div> 
-					<!-- End Column 2 -->
+<!-- Start Column 3 -->
+<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+    <a class="product-item" href="{{ asset('cart') }}">
+        <img src="https://images.unsplash.com/photo-1622260614153-03223fb72052?w=600&h=400&fit=crop" class="img-fluid product-thumbnail" alt="Backpack">
+        <h3 class="product-title">Kruzo Aero Chair</h3>
+        <strong class="product-price">Rp 78.000</strong>
+        <span class="icon-cross">
+            <img src="{{ asset('assets/images/cross.svg') }}" class="img-fluid">
+        </span>
+    </a>
+</div>
+<!-- End Column 3 -->
 
-					<!-- Start Column 3 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-						<a class="product-item" href="{{ asset('cart') }}">
-							<img src="https://source.unsplash.com/600x400/?backpack,gear" class="img-fluid product-thumbnail" alt="Backpack">
-							<h3 class="product-title">Kruzo Aero Chair</h3>
-							<strong class="product-price">$78.00</strong>
-
-							<span class="icon-cross">
-								<img src="{{ asset('assets/images/cross.svg') }}" class="img-fluid">
-							</span>
-						</a>
-					</div>
-					<!-- End Column 3 -->
-
-					<!-- Start Column 4 -->
-					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-						<a class="product-item" href="{{ asset('cart') }}">
-							<img src="https://source.unsplash.com/600x400/?camping,stove,boots" class="img-fluid product-thumbnail" alt="Camping Gear">
-							<h3 class="product-title">Ergonomic Chair</h3>
-							<strong class="product-price">$43.00</strong>
-
-							<span class="icon-cross">
-								<img src="{{ asset('assets/images/cross.svg') }}" class="img-fluid">
-							</span>
-						</a>
-					</div>
-					<!-- End Column 4 -->
+<!-- Start Column 4 -->
+<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+    <a class="product-item" href="{{ asset('cart') }}">
+        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop" class="img-fluid product-thumbnail" alt="Camping Gear">
+        <h3 class="product-title">Ergonomic Chair</h3>
+        <strong class="product-price">Rp 43.000</strong>
+        <span class="icon-cross">
+            <img src="{{ asset('assets/images/cross.svg') }}" class="img-fluid">
+        </span>
+    </a>
+</div>
+<!-- End Column 4 -->
 
 				</div>
 			</div>
@@ -140,402 +136,360 @@
 		<!-- End Product Section -->
 
 		<!-- Start Why Choose Us Section -->
-		<div class="why-choose-section">
-			<div class="container">
-				<div class="row justify-content-between">
-					<div class="col-lg-6">
-						<h2 class="section-title">Why Choose Us</h2>
-						<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+<div class="why-choose-section">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-6">
+                <h2 class="section-title">Why Choose Tendakian</h2>
+                <p>Kami menyediakan perlengkapan outdoor berkualitas tinggi untuk petualangan Anda. Percayakan kebutuhan camping dan hiking Anda kepada kami.</p>
 
-						<div class="row my-5">
-							<div class="col-6 col-md-6">
-								<div class="feature">
-									<div class="icon">
-										<img src="{{ asset('assets/images/truck.svg') }}" alt="Image" class="imf-fluid">
-									</div>
-									<h3>Fast &amp; Free Shipping</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-								</div>
-							</div>
+                <div class="row my-5">
+                    <div class="col-6 col-md-6">
+                        <div class="feature">
+                            <div class="icon">
+                                <img src="{{ asset('assets/images/truck.svg') }}" alt="Image" class="imf-fluid">
+                            </div>
+                            <h3>Pengiriman Cepat</h3>
+                            <p>Layanan antar-jemput perlengkapan outdoor langsung ke lokasi Anda. Praktis dan hemat waktu untuk persiapan petualangan.</p>
+                        </div>
+                    </div>
 
-							<div class="col-6 col-md-6">
-								<div class="feature">
-									<div class="icon">
-										<img src="{{ asset('assets/images/bag.svg') }}" alt="Image" class="imf-fluid">
-									</div>
-									<h3>Easy to Shop</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-								</div>
-							</div>
+                    <div class="col-6 col-md-6">
+                        <div class="feature">
+                            <div class="icon">
+                                <img src="{{ asset('assets/images/bag.svg') }}" alt="Image" class="imf-fluid">
+                            </div>
+                            <h3>Perlengkapan Lengkap</h3>
+                            <p>Tersedia berbagai gear outdoor: tenda, sleeping bag, carrier, kompor, dan perlengkapan camping lainnya dalam kondisi prima.</p>
+                        </div>
+                    </div>
 
-							<div class="col-6 col-md-6">
-								<div class="feature">
-									<div class="icon">
-										<img src="{{ asset('assets/images/support.svg') }}" alt="Image" class="imf-fluid">
-									</div>
-									<h3>24/7 Support</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-								</div>
-							</div>
+                    <div class="col-6 col-md-6">
+                        <div class="feature">
+                            <div class="icon">
+                                <img src="{{ asset('assets/images/support.svg') }}" alt="Image" class="imf-fluid">
+                            </div>
+                            <h3>Konsultasi Gratis</h3>
+                            <p>Tim kami siap membantu memilih gear yang sesuai dengan kebutuhan petualangan Anda, baik untuk pemula maupun profesional.</p>
+                        </div>
+                    </div>
 
-							<div class="col-6 col-md-6">
-								<div class="feature">
-									<div class="icon">
-										<img src="{{ asset('assets/images/return.svg') }}" alt="Image" class="imf-fluid">
-									</div>
-									<h3>Hassle Free Returns</h3>
-									<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-								</div>
-							</div>
+                    <div class="col-6 col-md-6">
+                        <div class="feature">
+                            <div class="icon">
+                                <img src="{{ asset('assets/images/return.svg') }}" alt="Image" class="imf-fluid">
+                            </div>
+                            <h3>Harga Terjangkau</h3>
+                            <p>Sistem sewa yang fleksibel dengan harga kompetitif. Nikmati petualangan outdoor tanpa harus membeli peralatan mahal.</p>
+                        </div>
+                    </div>
 
-						</div>
-					</div>
+                </div>
+            </div>
 
-					<div class="col-lg-5">
-						<div class="img-wrap">
-							<img src="{{ asset('assets/images/why-choose-us-img.jpg') }}" alt="Image" class="img-fluid">
-						</div>
-					</div>
+            <div class="col-lg-5">
+                <div class="img-wrap">
+                    <img src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=800&h=1000&fit=crop" alt="Outdoor Camping" class="img-fluid">
+                </div>
+            </div>
 
-				</div>
-			</div>
-		</div>
-		<!-- End Why Choose Us Section -->
+        </div>
+    </div>
+</div>
+<!-- End Why Choose Us Section -->
 
 		<!-- Start We Help Section -->
-		<div class="we-help-section">
-			<div class="container">
-				<div class="row justify-content-between">
-					<div class="col-lg-7 mb-5 mb-lg-0">
-						<div class="imgs-grid">
-							<div class="grid grid-1"><img src="{{ asset('assets/images/img-grid-1.jpg') }}" alt="Untree.co"></div>
-							<div class="grid grid-2"><img src="{{ asset('assets/images/img-grid-2.jpg') }}" alt="Untree.co"></div>
-							<div class="grid grid-3"><img src="{{ asset('assets/images/img-grid-3.jpg') }}" alt="Untree.co"></div>
-						</div>
-					</div>
-					<div class="col-lg-5 ps-lg-5">
-						<h2 class="section-title mb-4">We Help You Make Modern Interior Design</h2>
-						<p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada</p>
+<div class="we-help-section">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-7 mb-5 mb-lg-0">
+                <div class="imgs-grid">
+                    <div class="grid grid-1"><img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&h=500&fit=crop" alt="Camping Tent"></div>
+                    <div class="grid grid-2"><img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=600&h=600&fit=crop" alt="Hiking Backpack"></div>
+                    <div class="grid grid-3"><img src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=600&h=400&fit=crop" alt="Mountain Camping"></div>
+                </div>
+            </div>
+            <div class="col-lg-5 ps-lg-5">
+                <h2 class="section-title mb-4">Kami Membantu Petualangan Outdoor Anda</h2>
+                <p>Tendakian menyediakan solusi lengkap untuk kebutuhan camping, hiking, dan petualangan outdoor Anda. Dengan perlengkapan berkualitas dan layanan terpercaya, kami siap mendukung setiap momen berharga di alam terbuka.</p>
 
-						<ul class="list-unstyled custom-list my-4">
-							<li>Donec vitae odio quis nisl dapibus malesuada</li>
-							<li>Donec vitae odio quis nisl dapibus malesuada</li>
-							<li>Donec vitae odio quis nisl dapibus malesuada</li>
-							<li>Donec vitae odio quis nisl dapibus malesuada</li>
-						</ul>
-						<p><a herf="#" class="btn">Explore</a></p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End We Help Section -->
+                <ul class="list-unstyled custom-list my-4">
+                    <li>Perlengkapan outdoor berkualitas tinggi dan terawat</li>
+                    <li>Proses sewa mudah dan cepat, cocok untuk pemula hingga profesional</li>
+                    <li>Harga sewa terjangkau dengan paket fleksibel</li>
+                    <li>Layanan konsultasi gratis untuk memilih gear yang tepat</li>
+                </ul>
+                <p><a href="{{ url('/shop') }}" class="btn">Explore</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End We Help Section -->
 
 		<!-- Start Popular Product -->
-		<div class="popular-product">
-			<div class="container">
-				<div class="row">
+<div class="popular-product">
+    <div class="container">
+        <div class="row">
 
-					<div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
-						<div class="product-item-sm d-flex">
-							<div class="thumbnail">
-								<img src="{{ asset('assets/images/product-1.png') }}" alt="Image" class="img-fluid">
-							</div>
-							<div class="pt-3">
-								<h3>Nordic Chair</h3>
-								<p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio </p>
-								<p><a href="#">Read More</a></p>
-							</div>
-						</div>
-					</div>
+            <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
+                <div class="product-item-sm d-flex">
+                    <div class="thumbnail">
+                        <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=300&h=300&fit=crop" alt="Camping Tent" class="img-fluid">
+                    </div>
+                    <div class="pt-3">
+                        <h3>Tenda Camping</h3>
+                        <p>Tenda berkualitas untuk 2-4 orang, tahan air dan mudah dipasang. Cocok untuk camping di gunung atau pantai.</p>
+                        <p><a href="{{ url('/shop') }}">Lihat Produk</a></p>
+                    </div>
+                </div>
+            </div>
 
-					<div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
-						<div class="product-item-sm d-flex">
-							<div class="thumbnail">
-								<img src="{{ asset('assets/images/product-2.png') }}" alt="Image" class="img-fluid">
-							</div>
-							<div class="pt-3">
-								<h3>Kruzo Aero Chair</h3>
-								<p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio </p>
-								<p><a href="#">Read More</a></p>
-							</div>
-						</div>
-					</div>
+            <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
+                <div class="product-item-sm d-flex">
+                    <div class="thumbnail">
+                        <img src="https://images.unsplash.com/photo-1622260614153-03223fb72052?w=300&h=300&fit=crop" alt="Carrier Backpack" class="img-fluid">
+                    </div>
+                    <div class="pt-3">
+                        <h3>Carrier & Backpack</h3>
+                        <p>Ransel carrier kapasitas besar dengan sistem penopang punggung yang nyaman untuk perjalanan jauh.</p>
+                        <p><a href="{{ url('/shop') }}">Lihat Produk</a></p>
+                    </div>
+                </div>
+            </div>
 
-					<div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
-						<div class="product-item-sm d-flex">
-							<div class="thumbnail">
-								<img src="{{ asset('assets/images/product-3.png') }}" alt="Image" class="img-fluid">
-							</div>
-							<div class="pt-3">
-								<h3>Ergonomic Chair</h3>
-								<p>Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio </p>
-								<p><a href="#">Read More</a></p>
-							</div>
-						</div>
-					</div>
+            <div class="col-12 col-md-6 col-lg-4 mb-4 mb-lg-0">
+                <div class="product-item-sm d-flex">
+                    <div class="thumbnail">
+                        <img src="https://images.unsplash.com/photo-1537225228614-56cc3556d7ed?w=300&h=300&fit=crop" alt="Sleeping Bag" class="img-fluid">
+                    </div>
+                    <div class="pt-3">
+                        <h3>Sleeping Bag</h3>
+                        <p>Sleeping bag hangat dan nyaman untuk suhu dingin. Material berkualitas tinggi dan mudah dibawa.</p>
+                        <p><a href="{{ url('/shop') }}">Lihat Produk</a></p>
+                    </div>
+                </div>
+            </div>
 
-				</div>
+        </div>
+    </div>
+</div>
+<!-- End Popular Product -->
+
+
+	<!-- Start Blog Section -->
+<div class="blog-section">
+	<div class="container">
+		<div class="row mb-5">
+			<div class="col-md-6">
+				<h2 class="section-title">Artikel Outdoor Terbaru</h2>
+			</div>
+			<div class="col-md-6 text-start text-md-end">
+				<a href="#" class="more">Lihat Semua Artikel</a>
 			</div>
 		</div>
-		<!-- End Popular Product -->
 
-		<!-- Start Testimonial Slider -->
-		<div class="testimonial-section">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-7 mx-auto text-center">
-						<h2 class="section-title">Testimonials</h2>
-					</div>
-				</div>
+		<div class="row">
 
-				<div class="row justify-content-center">
-					<div class="col-lg-12">
-						<div class="testimonial-slider-wrap text-center">
-
-							<div id="testimonial-nav">
-								<span class="prev" data-controls="prev"><span class="fa fa-chevron-left"></span></span>
-								<span class="next" data-controls="next"><span class="fa fa-chevron-right"></span></span>
-							</div>
-
-							<div class="testimonial-slider">
-								
-								<div class="item">
-									<div class="row justify-content-center">
-										<div class="col-lg-8 mx-auto">
-
-											<div class="testimonial-block text-center">
-												<blockquote class="mb-5">
-													<p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
-												</blockquote>
-
-												<div class="author-info">
-													<div class="author-pic">
-														<img src="{{ asset('assets/images/person-1.png') }}" alt="Maria Jones" class="img-fluid">
-													</div>
-													<h3 class="font-weight-bold">Maria Jones</h3>
-													<span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div> 
-								<!-- END item -->
-
-								<div class="item">
-									<div class="row justify-content-center">
-										<div class="col-lg-8 mx-auto">
-
-											<div class="testimonial-block text-center">
-												<blockquote class="mb-5">
-													<p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
-												</blockquote>
-
-												<div class="author-info">
-													<div class="author-pic">
-														<img src="{{ asset('images/person-1.png') }}" alt="Maria Jones" class="img-fluid">
-													</div>
-													<h3 class="font-weight-bold">Maria Jones</h3>
-													<span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div> 
-								<!-- END item -->
-
-								<div class="item">
-									<div class="row justify-content-center">
-										<div class="col-lg-8 mx-auto">
-
-											<div class="testimonial-block text-center">
-												<blockquote class="mb-5">
-													<p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
-												</blockquote>
-
-												<div class="author-info">
-													<div class="author-pic">
-														<img src="{{ asset('images/person-1.png') }}" alt="Maria Jones" class="img-fluid">
-													</div>
-													<h3 class="font-weight-bold">Maria Jones</h3>
-													<span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div> 
-								<!-- END item -->
-
-							</div>
-
+			<!-- Blog 1 -->
+			<div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
+				<div class="post-entry">
+					<a href="#" class="post-thumbnail">
+						<img 
+							src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&h=400&fit=crop"
+							alt="Tips Memilih Tenda"
+							class="img-fluid"
+							loading="lazy"
+						>
+					</a>
+					<div class="post-content-entry">
+						<h3><a href="#">Tips Memilih Tenda untuk Pendakian</a></h3>
+						<div class="meta">
+							<span>oleh <a href="#">Admin Tendakian</a></span>
+							<span>pada <a href="#">Jan 5, 2026</a></span>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<!-- End Testimonial Slider -->
 
-		<!-- Start Blog Section -->
-		<div class="blog-section">
-			<div class="container">
-				<div class="row mb-5">
-					<div class="col-md-6">
-						<h2 class="section-title">Recent Blog</h2>
-					</div>
-					<div class="col-md-6 text-start text-md-end">
-						<a href="#" class="more">View All Posts</a>
-					</div>
-				</div>
-
-				<div class="row">
-
-					<div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
-						<div class="post-entry">
-							<a href="#" class="post-thumbnail"><img src="{{ asset('assets/images/post-1.jpg') }}" alt="Image" class="img-fluid"></a>
-							<div class="post-content-entry">
-								<h3><a href="#">First Time Home Owner Ideas</a></h3>
-								<div class="meta">
-									<span>by <a href="#">Kristin Watson</a></span> <span>on <a href="#">Dec 19, 2021</a></span>
-								</div>
-							</div>
+			<!-- Blog 2 -->
+			<div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
+				<div class="post-entry">
+					<a href="#" class="post-thumbnail">
+						<img 
+							src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&h=400&fit=crop"
+							alt="Cara Memilih Carrier"
+							class="img-fluid"
+							loading="lazy"
+						>
+					</a>
+					<div class="post-content-entry">
+						<h3><a href="#">Cara Memilih Carrier yang Nyaman</a></h3>
+						<div class="meta">
+							<span>oleh <a href="#">Tim Outdoor</a></span>
+							<span>pada <a href="#">Jan 2, 2026</a></span>
 						</div>
 					</div>
-
-					<div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
-						<div class="post-entry">
-							<a href="#" class="post-thumbnail"><img src="{{ asset('images/post-2.jpg') }}" alt="Image" class="img-fluid"></a>
-							<div class="post-content-entry">
-								<h3><a href="#">How To Keep Your Furniture Clean</a></h3>
-								<div class="meta">
-									<span>by <a href="#">Robert Fox</a></span> <span>on <a href="#">Dec 15, 2021</a></span>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
-						<div class="post-entry">
-							<a href="#" class="post-thumbnail"><img src="{{ asset('images/post-3.jpg') }}" alt="Image" class="img-fluid"></a>
-							<div class="post-content-entry">
-								<h3><a href="#">Small Space Furniture Apartment Ideas</a></h3>
-								<div class="meta">
-									<span>by <a href="#">Kristin Watson</a></span> <span>on <a href="#">Dec 12, 2021</a></span>
-								</div>
-							</div>
-						</div>
-					</div>
-
 				</div>
 			</div>
+
+			<!-- Blog 3 -->
+			<div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
+				<div class="post-entry">
+					<a href="#" class="post-thumbnail">
+						<img 
+							src="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=600&h=400&fit=crop"
+							alt="Perawatan Sleeping Bag"
+							class="img-fluid"
+							loading="lazy"
+						>
+					</a>
+					<div class="post-content-entry">
+						<h3><a href="#">Cara Merawat Sleeping Bag Agar Awet</a></h3>
+						<div class="meta">
+							<span>oleh <a href="#">Admin Tendakian</a></span>
+							<span>pada <a href="#">Dec 28, 2025</a></span>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</div>
-		<!-- End Blog Section -->	
+	</div>
+</div>
+<!-- End Blog Section -->
+
+	
 
 		<!-- Start Footer Section -->
-		<footer class="footer-section">
-			<div class="container relative">
+<footer class="footer-section">
+	<div class="container relative">
 
-				<div class="sofa-img">
-					<img src="{{ asset('images/sofa.png') }}" alt="Image" class="img-fluid">
-				</div>
+		<!-- Decorative Outdoor Image (Unsplash) -->
+		<div class="sofa-img">
+			<img 
+				src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=900&h=600&fit=crop"
+				alt="Outdoor Adventure"
+				class="img-fluid"
+				loading="lazy"
+			>
+		</div>
 
-				<div class="row">
-					<div class="col-lg-8">
-						<div class="subscription-form">
-							<h3 class="d-flex align-items-center"><span class="me-1"><img src="{{ asset('images/envelope-outline.svg') }}" alt="Image" class="img-fluid"></span><span>Subscribe to Newsletter</span></h3>
+		<!-- Newsletter -->
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="subscription-form">
+					<h3 class="d-flex align-items-center">
+						<span class="me-2">
+							<img src="{{ asset('assets/images/envelope-outline.svg') }}" alt="Newsletter" class="img-fluid">
+						</span>
+						<span>Dapatkan Tips & Promo Outdoor</span>
+					</h3>
 
-							<form action="#" class="row g-3">
-								<div class="col-auto">
-									<input type="text" class="form-control" placeholder="Enter your name">
-								</div>
-								<div class="col-auto">
-									<input type="email" class="form-control" placeholder="Enter your email">
-								</div>
-								<div class="col-auto">
-									<button class="btn btn-primary">
-										<span class="fa fa-paper-plane"></span>
-									</button>
-								</div>
-							</form>
-
+					<form action="#" class="row g-3">
+						<div class="col-auto">
+							<input type="text" class="form-control" placeholder="Nama lengkap">
 						</div>
-					</div>
+						<div class="col-auto">
+							<input type="email" class="form-control" placeholder="Email aktif">
+						</div>
+						<div class="col-auto">
+							<button class="btn btn-primary">
+								<span class="fa fa-paper-plane"></span>
+							</button>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer Content -->
+		<div class="row g-5 mb-5">
+			<!-- Brand -->
+			<div class="col-lg-4">
+				<div class="mb-4 footer-logo-wrap">
+					<a href="/" class="footer-logo">tendakian<span>.</span></a>
 				</div>
 
-				<div class="row g-5 mb-5">
-					<div class="col-lg-4">
-						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">tendakian<span>.</span></a></div>
-						<p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant</p>
+				<p class="mb-4">
+					Tendakian adalah platform penyewaan alat outdoor terpercaya untuk pendakian,
+					camping, dan petualangan alam. Praktis, aman, dan siap menemani perjalananmu.
+				</p>
 
-						<ul class="list-unstyled custom-social">
-							<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
-							<li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
-							<li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
-							<li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
+				<ul class="list-unstyled custom-social">
+					<li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
+					<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
+					<li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
+					<li><a href="#"><span class="fa fa-brands fa-whatsapp"></span></a></li>
+				</ul>
+			</div>
+
+			<!-- Links -->
+			<div class="col-lg-8">
+				<div class="row links-wrap">
+
+					<div class="col-6 col-sm-6 col-md-3">
+						<ul class="list-unstyled">
+							<li><a href="#">Tentang Kami</a></li>
+							<li><a href="#">Cara Sewa</a></li>
+							<li><a href="#">Artikel Outdoor</a></li>
+							<li><a href="#">Kontak</a></li>
 						</ul>
 					</div>
 
-					<div class="col-lg-8">
-						<div class="row links-wrap">
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">About us</a></li>
-									<li><a href="#">Services</a></li>
-									<li><a href="#">Blog</a></li>
-									<li><a href="#">Contact us</a></li>
-								</ul>
-							</div>
+					<div class="col-6 col-sm-6 col-md-3">
+						<ul class="list-unstyled">
+							<li><a href="#">Bantuan</a></li>
+							<li><a href="#">Syarat & Ketentuan</a></li>
+							<li><a href="#">FAQ</a></li>
+						</ul>
+					</div>
 
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Support</a></li>
-									<li><a href="#">Knowledge base</a></li>
-									<li><a href="#">Live chat</a></li>
-								</ul>
-							</div>
+					<div class="col-6 col-sm-6 col-md-3">
+						<ul class="list-unstyled">
+							<li><a href="#">Tenda</a></li>
+							<li><a href="#">Carrier</a></li>
+							<li><a href="#">Sleeping Bag</a></li>
+							<li><a href="#">Kompor & Alat Masak</a></li>
+						</ul>
+					</div>
 
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Jobs</a></li>
-									<li><a href="#">Our team</a></li>
-									<li><a href="#">Leadership</a></li>
-									<li><a href="#">Privacy Policy</a></li>
-								</ul>
-							</div>
-
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Nordic Chair</a></li>
-									<li><a href="#">Kruzo Aero</a></li>
-									<li><a href="#">Ergonomic Chair</a></li>
-								</ul>
-							</div>
-						</div>
+					<div class="col-6 col-sm-6 col-md-3">
+						<ul class="list-unstyled">
+							<li><a href="#">Paket Pendakian</a></li>
+							<li><a href="#">Paket Camping</a></li>
+							<li><a href="#">Perlengkapan Safety</a></li>
+						</ul>
 					</div>
 
 				</div>
+			</div>
+		</div>
 
-				<div class="border-top copyright">
-					<div class="row pt-4">
-						<div class="col-lg-6">
-							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="{{ asset('https://untree.co') }}">Untree.co</a> Distributed By <a href="{{ asset('https://themewagon.com') }}">ThemeWagon</a>  <!-- License information: https://untree.co/license/ -->
-            </p>
-						</div>
+		<!-- Copyright -->
+		<div class="border-top copyright">
+			<div class="row pt-4">
+				<div class="col-lg-6">
+					<p class="mb-2 text-center text-lg-start">
+						&copy; <script>document.write(new Date().getFullYear());</script> Tendakian.
+						All Rights Reserved.
+					</p>
+				</div>
 
-						<div class="col-lg-6 text-center text-lg-end">
-							<ul class="list-unstyled d-inline-flex ms-auto">
-								<li class="me-4"><a href="#">Terms &amp; Conditions</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-							</ul>
-						</div>
-
-					</div>
+				<div class="col-lg-6 text-center text-lg-end">
+					<ul class="list-unstyled d-inline-flex ms-auto">
+						<li class="me-4"><a href="#">Syarat & Ketentuan</a></li>
+						<li><a href="#">Kebijakan Privasi</a></li>
+					</ul>
 				</div>
 
 			</div>
-		</footer>
-		<!-- End Footer Section -->	
+		</div>
+
+	</div>
+</footer>
+<!-- End Footer Section -->
+
 
 
 		<script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>

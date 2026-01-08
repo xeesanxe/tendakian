@@ -315,109 +315,134 @@
 		
 
 		<!-- Start Footer Section -->
-		<footer class="footer-section">
-			<div class="container relative">
+<footer class="footer-section">
+	<div class="container relative">
 
-				<div class="sofa-img">
-					<img src="{{ asset('assets/images/sofa.png') }}" alt="Image" class="img-fluid">
-				</div>
+		<!-- Decorative Outdoor Image (Unsplash) -->
+		<div class="sofa-img">
+			<img 
+				src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=900&h=600&fit=crop"
+				alt="Outdoor Adventure"
+				class="img-fluid"
+				loading="lazy"
+			>
+		</div>
 
-				<div class="row">
-					<div class="col-lg-8">
-						<div class="subscription-form">
-							<h3 class="d-flex align-items-center"><span class="me-1"><img src="{{ asset('assets/images/envelope-outline.svg') }}" alt="Image" class="img-fluid"></span><span>Subscribe to Newsletter</span></h3>
+		<!-- Newsletter -->
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="subscription-form">
+					<h3 class="d-flex align-items-center">
+						<span class="me-2">
+							<img src="{{ asset('assets/images/envelope-outline.svg') }}" alt="Newsletter" class="img-fluid">
+						</span>
+						<span>Dapatkan Tips & Promo Outdoor</span>
+					</h3>
 
-							<form action="#" class="row g-3">
-								<div class="col-auto">
-									<input type="text" class="form-control" placeholder="Enter your name">
-								</div>
-								<div class="col-auto">
-									<input type="email" class="form-control" placeholder="Enter your email">
-								</div>
-								<div class="col-auto">
-									<button class="btn btn-primary">
-										<span class="fa fa-paper-plane"></span>
-									</button>
-								</div>
-							</form>
-
+					<form action="#" class="row g-3">
+						<div class="col-auto">
+							<input type="text" class="form-control" placeholder="Nama lengkap">
 						</div>
-					</div>
+						<div class="col-auto">
+							<input type="email" class="form-control" placeholder="Email aktif">
+						</div>
+						<div class="col-auto">
+							<button class="btn btn-primary">
+								<span class="fa fa-paper-plane"></span>
+							</button>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer Content -->
+		<div class="row g-5 mb-5">
+			<!-- Brand -->
+			<div class="col-lg-4">
+				<div class="mb-4 footer-logo-wrap">
+					<a href="/" class="footer-logo">tendakian<span>.</span></a>
 				</div>
 
-				<div class="row g-5 mb-5">
-					<div class="col-lg-4">
-						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">tendakian<span>.</span></a></div>
-						<p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant</p>
+				<p class="mb-4">
+					Tendakian adalah platform penyewaan alat outdoor terpercaya untuk pendakian,
+					camping, dan petualangan alam. Praktis, aman, dan siap menemani perjalananmu.
+				</p>
 
-						<ul class="list-unstyled custom-social">
-							<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
-							<li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
-							<li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
-							<li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
+				<ul class="list-unstyled custom-social">
+					<li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
+					<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
+					<li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
+					<li><a href="#"><span class="fa fa-brands fa-whatsapp"></span></a></li>
+				</ul>
+			</div>
+
+			<!-- Links -->
+			<div class="col-lg-8">
+				<div class="row links-wrap">
+
+					<div class="col-6 col-sm-6 col-md-3">
+						<ul class="list-unstyled">
+							<li><a href="#">Tentang Kami</a></li>
+							<li><a href="#">Cara Sewa</a></li>
+							<li><a href="#">Artikel Outdoor</a></li>
+							<li><a href="#">Kontak</a></li>
 						</ul>
 					</div>
 
-					<div class="col-lg-8">
-						<div class="row links-wrap">
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">About us</a></li>
-									<li><a href="#">Services</a></li>
-									<li><a href="#">Blog</a></li>
-									<li><a href="#">Contact us</a></li>
-								</ul>
-							</div>
+					<div class="col-6 col-sm-6 col-md-3">
+						<ul class="list-unstyled">
+							<li><a href="#">Bantuan</a></li>
+							<li><a href="#">Syarat & Ketentuan</a></li>
+							<li><a href="#">FAQ</a></li>
+						</ul>
+					</div>
 
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Support</a></li>
-									<li><a href="#">Knowledge base</a></li>
-									<li><a href="#">Live chat</a></li>
-								</ul>
-							</div>
+					<div class="col-6 col-sm-6 col-md-3">
+						<ul class="list-unstyled">
+							<li><a href="#">Tenda</a></li>
+							<li><a href="#">Carrier</a></li>
+							<li><a href="#">Sleeping Bag</a></li>
+							<li><a href="#">Kompor & Alat Masak</a></li>
+						</ul>
+					</div>
 
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Jobs</a></li>
-									<li><a href="#">Our team</a></li>
-									<li><a href="#">Leadership</a></li>
-									<li><a href="#">Privacy Policy</a></li>
-								</ul>
-							</div>
-
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Nordic Chair</a></li>
-									<li><a href="#">Kruzo Aero</a></li>
-									<li><a href="#">Ergonomic Chair</a></li>
-								</ul>
-							</div>
-						</div>
+					<div class="col-6 col-sm-6 col-md-3">
+						<ul class="list-unstyled">
+							<li><a href="#">Paket Pendakian</a></li>
+							<li><a href="#">Paket Camping</a></li>
+							<li><a href="#">Perlengkapan Safety</a></li>
+						</ul>
 					</div>
 
 				</div>
+			</div>
+		</div>
 
-				<div class="border-top copyright">
-					<div class="row pt-4">
-						<div class="col-lg-6">
-							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="{{ asset('https://untree.co') }}">Untree.co</a> Distributed By <a hreff="{{ asset('https://themewagon.com') }}">ThemeWagon</a>  <!-- License information: https://untree.co/license/ -->
-            </p>
-						</div>
+		<!-- Copyright -->
+		<div class="border-top copyright">
+			<div class="row pt-4">
+				<div class="col-lg-6">
+					<p class="mb-2 text-center text-lg-start">
+						&copy; <script>document.write(new Date().getFullYear());</script> Tendakian.
+						All Rights Reserved.
+					</p>
+				</div>
 
-						<div class="col-lg-6 text-center text-lg-end">
-							<ul class="list-unstyled d-inline-flex ms-auto">
-								<li class="me-4"><a href="#">Terms &amp; Conditions</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-							</ul>
-						</div>
-
-					</div>
+				<div class="col-lg-6 text-center text-lg-end">
+					<ul class="list-unstyled d-inline-flex ms-auto">
+						<li class="me-4"><a href="#">Syarat & Ketentuan</a></li>
+						<li><a href="#">Kebijakan Privasi</a></li>
+					</ul>
 				</div>
 
 			</div>
-		</footer>
-		<!-- End Footer Section -->	
+		</div>
+
+	</div>
+</footer>
+<!-- End Footer Section -->
 
 
 		<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>

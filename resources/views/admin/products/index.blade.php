@@ -63,7 +63,7 @@
                 <img src="https://source.unsplash.com/120x80/?camping,gear" style="height:60px">
               @endif
             </td>
-            <td>${{ number_format($p->price, 2) }}</td>
+            <td>Rp {{ number_format($p->price, 0, ',', '.') }}</td>
             <td>{{ $p->stock }}</td>
             <td>
               <a

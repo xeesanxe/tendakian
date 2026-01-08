@@ -110,20 +110,26 @@
                             @endif
                             <div>
                               <div>{{ $ci['name'] }}</div>
-                              <div class="small">Qty: {{ $ci['qty'] }} &middot; ${{ number_format($ci['price'],2) }}</div>
+<div class="small">
+  Qty: {{ $ci['qty'] }} &middot; Rp {{ number_format($ci['price'], 0, ',', '.') }}
+</div>
                             </div>
                           </div>
                         </td>
-                        <td class="text-end">${{ number_format($line,2) }}</td>
+<td class="text-end">Rp {{ number_format($line, 0, ',', '.') }}</td>
                       </tr>
                     @endforeach
                     <tr>
                       <td class="text-black"><strong>Cart Subtotal</strong></td>
-                      <td class="text-end text-black">${{ number_format($cartSubtotal,2) }}</td>
+<td class="text-end text-black">
+  Rp {{ number_format($cartSubtotal, 0, ',', '.') }}
+</td>
                     </tr>
                     <tr>
                       <td class="text-black"><strong>Order Total</strong></td>
-                      <td class="text-end text-black"><strong>${{ number_format($cartSubtotal,2) }}</strong></td>
+<td class="text-end text-black">
+  <strong>Rp {{ number_format($cartSubtotal, 0, ',', '.') }}</strong>
+</td>
                     </tr>
                   @endif
                 </tbody>

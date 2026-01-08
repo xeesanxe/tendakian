@@ -139,7 +139,9 @@
 															<td class="product-name text-start">
 																<h2 class="h5 text-black">{{ $item['name'] }}</h2>
 															</td>
-															<td class="product-price text-right">${{ number_format($item['price'], 2) }}</td>
+<td class="product-price text-right">
+    Rp {{ number_format($item['price'], 0, ',', '.') }}
+</td>
 															<td class="product-quantity text-center">
 																<form action="{{ route('cart.update') }}" method="POST" class="d-inline-block qty-form">
 																	@csrf
@@ -147,7 +149,11 @@
 																	<input type="number" name="qty" class="form-control text-center quantity-amount" value="{{ $item['qty'] }}" min="0" data-item-id="{{ $item['id'] }}">
 																</form>
 															</td>
-															<td class="product-total text-right">$<span class="line-total" data-item-id="{{ $item['id'] }}">{{ number_format($lineTotal, 2) }}</span></td>
+<td class="product-total text-right">
+    Rp <span class="line-total" data-item-id="{{ $item['id'] }}">
+        {{ number_format($lineTotal, 0, ',', '.') }}
+    </span>
+</td>
 															<td class="product-remove text-center">
 																<form action="{{ route('cart.remove') }}" method="POST">
 																	@csrf
@@ -181,7 +187,11 @@
                           <span class="text-black">Subtotal</span>
                         </div>
 												<div class="col-md-6 text-right">
-													<strong class="text-black">$<span id="cart-subtotal">{{ number_format($subtotal ?? 0, 2) }}</span></strong>
+<strong class="text-black">
+    Rp <span id="cart-subtotal">
+        {{ number_format($subtotal ?? 0, 0, ',', '.') }}
+    </span>
+</strong>
 												</div>
                       </div>
                       <div class="row mb-5">
@@ -189,7 +199,11 @@
                           <span class="text-black">Total</span>
                         </div>
 												<div class="col-md-6 text-right">
-													<strong class="text-black">$<span id="cart-total">{{ number_format($subtotal ?? 0, 2) }}</span></strong>
+<strong class="text-black">
+    Rp <span id="cart-total">
+        {{ number_format($subtotal ?? 0, 0, ',', '.') }}
+    </span>
+</strong>
 												</div>
                       </div>
         

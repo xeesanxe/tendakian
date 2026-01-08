@@ -105,8 +105,7 @@
                   <span class="fw-semibold">{{ $o->order_number }}</span>
                 </td>
                 <td class="align-middle">
-                  <span class="fw-bold text-success">${{ number_format($o->total, 2) }}</span>
-                </td>
+<span class="fw-bold text-success">Rp {{ number_format($o->total, 0, ',', '.') }}</span>                </td>
                 <td class="align-middle">
                   <span class="badge status-{{ strtolower($o->status) }}">
                     {{ ucfirst($o->status) }}

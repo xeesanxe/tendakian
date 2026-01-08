@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\UserAuthController;
 
 // Public pages
 Route::get('/', function () { return view('home'); });
@@ -16,6 +17,11 @@ Route::get('/about', function () { return view('about'); });
 Route::get('/services', function () { return view('services'); });
 Route::get('/blog', function () { return view('blog'); });
 Route::get('/contact', function () { return view('contact'); });
+
+// User auth
+Route::get('/login', [UserAuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [UserAuthController::class, 'login'])->name('login.post');
+Route::post('/logout', [UserAuthController::class, 'logout'])->name('logout');
 
 // Shop / product
 Route::get('/shop', [ProductController::class, 'index']);
@@ -36,7 +42,9 @@ Route::post('/checkout', [OrderController::class, 'store'])->name('checkout.stor
 Route::get('/thankyou', function(){ return view('thankyou'); });
 
 // Profile (shows session cart + user orders)
-Route::get('/profile', [UserProfileController::class, 'index'])->name('profile');
+Route::get('/profile', [UserProfileController::class, 'index'])
+    ->middleware('auth')
+    ->name('profile');
 
 // Payment
 Route::get('/payment/instructions/{id}', [PaymentController::class, 'instructions'])->name('payment.instructions');

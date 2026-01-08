@@ -170,7 +170,7 @@
                 <div style="font-size: 0.875rem; opacity: 0.9; margin-bottom: 4px;">Order Number</div>
                 <div style="font-size: 1.25rem; font-weight: 700;">{{ $order->order_number }}</div>
                 <div style="font-size: 1.5rem; font-weight: 700; margin-top: 8px;">
-                    ${{ number_format($order->total, 2) }}
+                    Rp {{ number_format($order->total, 0, ',', '.') }}}
                 </div>
             </div>
         </div>
@@ -223,7 +223,7 @@
                 <h6 style="font-weight: 600; margin-bottom: 12px; color: #2d3748;">Payment Steps:</h6>
                 <ol>
                     <li>Log in to your online banking or visit any branch</li>
-                    <li>Transfer <strong>${{ number_format($order->total, 2) }}</strong> to the account above</li>
+<li>Transfer <strong>Rp {{ number_format($order->total, 0, ',', '.') }}</strong> ke rekening di atas</li>
                     <li>Use <strong>{{ $order->order_number }}</strong> as your payment reference</li>
                     <li>Keep your transaction receipt for verification</li>
                     <li>Your order will be processed once payment is confirmed</li>
