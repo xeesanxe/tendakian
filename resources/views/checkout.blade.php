@@ -110,20 +110,26 @@
                             @endif
                             <div>
                               <div>{{ $ci['name'] }}</div>
-                              <div class="small">Qty: {{ $ci['qty'] }} &middot; ${{ number_format($ci['price'],2) }}</div>
+<div class="small">
+  Qty: {{ $ci['qty'] }} &middot; Rp {{ number_format($ci['price'], 0, ',', '.') }}/hari
+</div>
                             </div>
                           </div>
                         </td>
-                        <td class="text-end">${{ number_format($line,2) }}</td>
+<td class="text-end">Rp {{ number_format($line, 0, ',', '.') }}</td>
                       </tr>
                     @endforeach
                     <tr>
                       <td class="text-black"><strong>Cart Subtotal</strong></td>
-                      <td class="text-end text-black">${{ number_format($cartSubtotal,2) }}</td>
+<td class="text-end text-black">
+  Rp {{ number_format($cartSubtotal, 0, ',', '.') }}
+</td>
                     </tr>
                     <tr>
                       <td class="text-black"><strong>Order Total</strong></td>
-                      <td class="text-end text-black"><strong>${{ number_format($cartSubtotal,2) }}</strong></td>
+<td class="text-end text-black">
+  <strong>Rp {{ number_format($cartSubtotal, 0, ',', '.') }}</strong>
+</td>
                     </tr>
                   @endif
                 </tbody>
@@ -143,18 +149,105 @@
     </div>
   </div>
 
-  <!-- Footer (simple include of existing footer markup) -->
-  <footer class="footer-section">
-    <div class="container relative">
-      <div class="sofa-img"><img src="{{ asset('assets/images/sofa.png') }}" alt="Image" class="img-fluid"></div>
-      <div class="row g-5 mb-5">
-        <div class="col-lg-4">
-          <div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">tendakian<span>.</span></a></div>
-          <p class="mb-4">Donec facilisis quam ut purus rutrum lobortis.</p>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <!-- Footer -->
+<footer class="footer-section">
+	<div class="container relative">
+
+		<!-- Decorative Outdoor Image (Unsplash) -->
+		<div class="sofa-img">
+			<img 
+				src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=900&h=600&fit=crop"
+				alt="Outdoor Adventure"
+				class="img-fluid"
+				loading="lazy"
+			>
+		</div>
+
+		<!-- Footer Content -->
+		<div class="row g-5 mb-5">
+			<!-- Brand -->
+			<div class="col-lg-4">
+				<div class="mb-4 footer-logo-wrap">
+					<a href="/" class="footer-logo">tendakian<span>.</span></a>
+				</div>
+
+				<p class="mb-4">
+					Tendakian adalah platform penyewaan alat outdoor terpercaya untuk pendakian,
+					camping, dan petualangan alam. Praktis, aman, dan siap menemani perjalananmu.
+				</p>
+
+				<ul class="list-unstyled custom-social">
+					<li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
+					<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
+					<li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
+					<li><a href="#"><span class="fa fa-brands fa-whatsapp"></span></a></li>
+				</ul>
+			</div>
+
+			<!-- Links -->
+			<div class="col-lg-8">
+				<div class="row links-wrap">
+
+					<div class="col-6 col-sm-6 col-md-3">
+						<ul class="list-unstyled">
+							<li><a href="#">Tentang Kami</a></li>
+							<li><a href="#">Cara Sewa</a></li>
+							<li><a href="#">Artikel Outdoor</a></li>
+							<li><a href="#">Kontak</a></li>
+						</ul>
+					</div>
+
+					<div class="col-6 col-sm-6 col-md-3">
+						<ul class="list-unstyled">
+							<li><a href="#">Bantuan</a></li>
+							<li><a href="#">Syarat & Ketentuan</a></li>
+							<li><a href="#">FAQ</a></li>
+						</ul>
+					</div>
+
+					<div class="col-6 col-sm-6 col-md-3">
+						<ul class="list-unstyled">
+							<li><a href="#">Tenda</a></li>
+							<li><a href="#">Carrier</a></li>
+							<li><a href="#">Sleeping Bag</a></li>
+							<li><a href="#">Kompor & Alat Masak</a></li>
+						</ul>
+					</div>
+
+					<div class="col-6 col-sm-6 col-md-3">
+						<ul class="list-unstyled">
+							<li><a href="#">Paket Pendakian</a></li>
+							<li><a href="#">Paket Camping</a></li>
+							<li><a href="#">Perlengkapan Safety</a></li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- Copyright -->
+		<div class="border-top copyright">
+			<div class="row pt-4">
+				<div class="col-lg-6">
+					<p class="mb-2 text-center text-lg-start">
+						&copy; <script>document.write(new Date().getFullYear());</script> Tendakian.
+						All Rights Reserved.
+					</p>
+				</div>
+
+				<div class="col-lg-6 text-center text-lg-end">
+					<ul class="list-unstyled d-inline-flex ms-auto">
+						<li class="me-4"><a href="#">Syarat & Ketentuan</a></li>
+						<li><a href="#">Kebijakan Privasi</a></li>
+					</ul>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+</footer>
 
   <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('assets/js/custom.js') }}"></script>

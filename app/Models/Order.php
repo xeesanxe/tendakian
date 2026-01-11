@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Order extends Model
 {
@@ -16,6 +17,13 @@ class Order extends Model
         'shipping_address',
         'rental_start',
         'rental_end',
+    ];
+
+    protected $dates = [
+        'rental_start',
+        'rental_end',
+        'created_at',
+        'updated_at',
     ];
 
     public function items()

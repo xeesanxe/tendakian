@@ -6,16 +6,26 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderAdminController;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\UserAuthController;
 
 // Public pages
 Route::get('/', function () { return view('home'); });
 Route::get('/about', function () { return view('about'); });
 Route::get('/services', function () { return view('services'); });
-Route::get('/blog', function () { return view('blog'); });
-Route::get('/contact', function () { return view('contact'); });
+
+// User auth
+Route::get('/login', [UserAuthController::class, 'showLogin'])->name('login');
+Route::post('/login', [UserAuthController::class, 'login'])->name('login.post');
+Route::post('/logout', [UserAuthController::class, 'logout'])->name('logout');
+
+// User dashboard (protected) - redirect to profile
+Route::get('/dashboard', function() {
+    return redirect()->route('profile');
+})->middleware('auth')->name('dashboard');
 
 // Shop / product
 Route::get('/shop', [ProductController::class, 'index']);
@@ -36,7 +46,9 @@ Route::post('/checkout', [OrderController::class, 'store'])->name('checkout.stor
 Route::get('/thankyou', function(){ return view('thankyou'); });
 
 // Profile (shows session cart + user orders)
-Route::get('/profile', [UserProfileController::class, 'index'])->name('profile');
+Route::get('/profile', [UserProfileController::class, 'index'])
+    ->middleware('auth')
+    ->name('profile');
 
 // Payment
 Route::get('/payment/instructions/{id}', [PaymentController::class, 'instructions'])->name('payment.instructions');
@@ -49,7 +61,8 @@ Route::post('/admin/logout', [AdminAuthController::class, 'logout'])->name('admi
 
 // Admin routes (protected using middleware class directly)
 Route::middleware(\App\Http\Middleware\EnsureAdmin::class)->group(function(){
-    Route::get('/admin', function(){ return redirect('/admin/orders'); });
+    Route::get('/admin', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/dashboard', [AdminDashboardController::class, 'index']);
     Route::get('/admin/orders', [OrderAdminController::class, 'index']);
     Route::get('/admin/orders/{id}', [OrderAdminController::class, 'show']);
     Route::post('/admin/orders/{id}/mark-paid', [OrderAdminController::class, 'markPaid'])->name('admin.orders.markPaid');
@@ -60,7 +73,8 @@ Route::middleware(\App\Http\Middleware\EnsureAdmin::class)->group(function(){
     Route::get('/admin/products/create', [AdminProductController::class, 'create'])->name('admin.products.create');
     Route::post('/admin/products', [AdminProductController::class, 'store'])->name('admin.products.store');
     Route::get('/admin/products/{id}/edit', [AdminProductController::class, 'edit'])->name('admin.products.edit');
-    Route::post('/admin/products/{id}', [AdminProductController::class, 'update'])->name('admin.products.update');
-    Route::post('/admin/products/{id}/delete', [AdminProductController::class, 'destroy'])->name('admin.products.destroy');
+    Route::put('/admin/products/{id}', [AdminProductController::class, 'update'])->name('admin.products.update');
+    Route::delete('/admin/products/{id}', [AdminProductController::class, 'destroy'])->name('admin.products.destroy');
+    Route::post('/admin/products/{id}/toggle-status', [AdminProductController::class, 'toggleStatus'])->name('admin.products.toggleStatus');
 });
 

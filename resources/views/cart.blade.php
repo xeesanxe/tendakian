@@ -20,9 +20,10 @@
 		<!-- Bootstrap CSS -->
 		<link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 		<link href="{{ asset('assets/css/fontawesome.min.css') }}" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 		<link href="{{ asset('assets/css/tiny-slider.css') }}" rel="stylesheet">
 			<link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-			<title>tendakian — Furniture Store</title>
+			<title>tendakian — Cart</title>
 	</head>
 
 	<body>
@@ -45,8 +46,6 @@
 						<li><a class="nav-link" href="{{ url('/shop') }}">Shop</a></li>
 						<li><a class="nav-link" href="{{ url('/about') }}">About us</a></li>
 						<li><a class="nav-link" href="{{ url('/services') }}">Services</a></li>
-						<li><a class="nav-link" href="{{ url('/blog') }}">Blog</a></li>
-						<li><a class="nav-link" href="{{ url('/contact') }}">Contact us</a></li>
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
@@ -119,27 +118,97 @@
 															@php
 															$lineTotal = $item['qty'] * $item['price'];
 															$subtotal += $lineTotal;
-															$img = 'assets/images/product-1.png';
+															
+															// Tentukan gambar berdasarkan nama produk dengan URL yang beragam dan spesifik
+															$img = 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=240&h=160&fit=crop&auto=format'; // default tent
+															
+															// Tenda & Shelter
+															if (stripos($item['name'], 'tenda') !== false || stripos($item['name'], 'tent') !== false) {
+																$img = 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=240&h=160&fit=crop&auto=format'; // tent
+															} elseif (stripos($item['name'], 'tarp') !== false) {
+																$img = 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=240&h=160&fit=crop&auto=format'; // tarp/shelter
+															} elseif (stripos($item['name'], 'hammock') !== false) {
+																$img = 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=240&h=160&fit=crop&auto=format'; // hammock
+																
+															// Tas & Carrier
+															} elseif (stripos($item['name'], 'carrier') !== false) {
+																$img = 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=240&h=160&fit=crop&auto=format'; // large backpack
+															} elseif (stripos($item['name'], 'backpack') !== false) {
+																$img = 'https://images.unsplash.com/photo-1622260614153-03223fb72052?w=240&h=160&fit=crop&auto=format'; // hiking backpack
+															} elseif (stripos($item['name'], 'daypack') !== false) {
+																$img = 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=240&h=160&fit=crop&auto=format'; // daypack
+																
+															// Kompor & Alat Masak
+															} elseif (stripos($item['name'], 'kompor') !== false || stripos($item['name'], 'stove') !== false) {
+																$img = 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=240&h=160&fit=crop&auto=format'; // camping stove
+															} elseif (stripos($item['name'], 'cookset') !== false || stripos($item['name'], 'mess kit') !== false) {
+																$img = 'https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=240&h=160&fit=crop&auto=format'; // cookset
+																
+															// Sleeping System
+															} elseif (stripos($item['name'], 'sleeping bag') !== false) {
+																$img = 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=240&h=160&fit=crop&auto=format'; // sleeping bag
+															} elseif (stripos($item['name'], 'matras') !== false || stripos($item['name'], 'sleeping pad') !== false) {
+																$img = 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=240&h=160&fit=crop&auto=format'; // sleeping pad
+																
+															// Sepatu & Footwear
+															} elseif (stripos($item['name'], 'sepatu') !== false || stripos($item['name'], 'boots') !== false) {
+																$img = 'https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=240&h=160&fit=crop&auto=format'; // hiking boots
+																
+															// Lighting
+															} elseif (stripos($item['name'], 'headlamp') !== false) {
+																$img = 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=240&h=160&fit=crop&auto=format'; // headlamp
+															} elseif (stripos($item['name'], 'lantern') !== false) {
+																$img = 'https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=240&h=160&fit=crop&auto=format'; // camping lantern
+															} elseif (stripos($item['name'], 'flashlight') !== false) {
+																$img = 'https://images.unsplash.com/photo-1622260614153-03223fb72052?w=240&h=160&fit=crop&auto=format'; // flashlight
+																
+															// Pakaian & Clothing
+															} elseif (stripos($item['name'], 'jaket') !== false) {
+																$img = 'https://images.unsplash.com/photo-1551524164-6cf2ac531fb4?w=240&h=160&fit=crop&auto=format'; // outdoor jacket
+															} elseif (stripos($item['name'], 'poncho') !== false) {
+																$img = 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=240&h=160&fit=crop&auto=format'; // rain gear
+																
+															// Navigation & Tools
+															} elseif (stripos($item['name'], 'kompas') !== false) {
+																$img = 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=240&h=160&fit=crop&auto=format'; // compass
+															} elseif (stripos($item['name'], 'gps') !== false) {
+																$img = 'https://images.unsplash.com/photo-1622260614153-03223fb72052?w=240&h=160&fit=crop&auto=format'; // gps device
+															} elseif (stripos($item['name'], 'multi-tool') !== false) {
+																$img = 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=240&h=160&fit=crop&auto=format'; // multi-tool
+															} elseif (stripos($item['name'], 'parang') !== false) {
+																$img = 'https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=240&h=160&fit=crop&auto=format'; // survival knife
+																
+															// Water & Hydration
+															} elseif (stripos($item['name'], 'water filter') !== false || stripos($item['name'], 'hydration') !== false) {
+																$img = 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=240&h=160&fit=crop&auto=format'; // water gear
+																
+															// Safety & Emergency
+															} elseif (stripos($item['name'], 'first aid') !== false) {
+																$img = 'https://images.unsplash.com/photo-1551524164-6cf2ac531fb4?w=240&h=160&fit=crop&auto=format'; // first aid
+															} elseif (stripos($item['name'], 'whistle') !== false) {
+																$img = 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=240&h=160&fit=crop&auto=format'; // emergency whistle
+															} elseif (stripos($item['name'], 'paracord') !== false || stripos($item['name'], 'rope') !== false) {
+																$img = 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=240&h=160&fit=crop&auto=format'; // rope/paracord
+															}
+															
 															// If the id is numeric and a Product exists, prefer its image
 															if (is_numeric($item['id'])) {
 																$p = \App\Models\Product::find($item['id']);
-																if ($p) {
-																	if (!empty($p->image) && \Illuminate\Support\Facades\Storage::disk('public')->exists($p->image)) {
-																		$img = asset('storage/'.$p->image);
-																	} else {
-																		$img = 'https://source.unsplash.com/240x160/?camping,gear';
-																	}
+																if ($p && !empty($p->image) && \Illuminate\Support\Facades\Storage::disk('public')->exists($p->image)) {
+																	$img = asset('storage/'.$p->image);
 																}
 															}
 														@endphp
 														<tr data-item-id="{{ $item['id'] }}">
 															<td class="product-thumbnail">
-																<img src="{{ asset($img) }}" alt="{{ $item['name'] }}" class="img-fluid">
+																<img src="{{ $img }}" alt="{{ $item['name'] }}" class="img-fluid">
 															</td>
 															<td class="product-name text-start">
 																<h2 class="h5 text-black">{{ $item['name'] }}</h2>
 															</td>
-															<td class="product-price text-right">${{ number_format($item['price'], 2) }}</td>
+<td class="product-price text-right">
+    Rp {{ number_format($item['price'], 0, ',', '.') }}/hari
+</td>
 															<td class="product-quantity text-center">
 																<form action="{{ route('cart.update') }}" method="POST" class="d-inline-block qty-form">
 																	@csrf
@@ -147,7 +216,11 @@
 																	<input type="number" name="qty" class="form-control text-center quantity-amount" value="{{ $item['qty'] }}" min="0" data-item-id="{{ $item['id'] }}">
 																</form>
 															</td>
-															<td class="product-total text-right">$<span class="line-total" data-item-id="{{ $item['id'] }}">{{ number_format($lineTotal, 2) }}</span></td>
+<td class="product-total text-right">
+    Rp <span class="line-total" data-item-id="{{ $item['id'] }}">
+        {{ number_format($lineTotal, 0, ',', '.') }}
+    </span>
+</td>
 															<td class="product-remove text-center">
 																<form action="{{ route('cart.remove') }}" method="POST">
 																	@csrf
@@ -181,7 +254,11 @@
                           <span class="text-black">Subtotal</span>
                         </div>
 												<div class="col-md-6 text-right">
-													<strong class="text-black">$<span id="cart-subtotal">{{ number_format($subtotal ?? 0, 2) }}</span></strong>
+<strong class="text-black">
+    Rp <span id="cart-subtotal">
+        {{ number_format($subtotal ?? 0, 0, ',', '.') }}
+    </span>
+</strong>
 												</div>
                       </div>
                       <div class="row mb-5">
@@ -189,7 +266,11 @@
                           <span class="text-black">Total</span>
                         </div>
 												<div class="col-md-6 text-right">
-													<strong class="text-black">$<span id="cart-total">{{ number_format($subtotal ?? 0, 2) }}</span></strong>
+<strong class="text-black">
+    Rp <span id="cart-total">
+        {{ number_format($subtotal ?? 0, 0, ',', '.') }}
+    </span>
+</strong>
 												</div>
                       </div>
         
@@ -207,108 +288,133 @@
 		
 
 		<!-- Start Footer Section -->
-		<footer class="footer-section">
-			<div class="container relative">
+<footer class="footer-section">
+	<div class="container relative">
 
-				<div class="sofa-img">
-					<img src="{{ asset('assets/images/sofa.png') }}" alt="Image" class="img-fluid">
-				</div>
+		<!-- Decorative Outdoor Image (Unsplash) -->
+		<div class="sofa-img">
+			<img 
+				src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=900&h=600&fit=crop"
+				alt="Outdoor Adventure"
+				class="img-fluid"
+				loading="lazy"
+			>
+		</div>
 
-				<div class="row">
-					<div class="col-lg-8">
-						<div class="subscription-form">
-							<h3 class="d-flex align-items-center"><span class="me-1"><img src="{{ asset('assets/images/envelope-outline.svg') }}" alt="Image" class="img-fluid"></span><span>Subscribe to Newsletter</span></h3>
+		<!-- Newsletter -->
+		<div class="row">
+			<div class="col-lg-8">
+				<div class="subscription-form">
+					<h3 class="d-flex align-items-center">
+						<span class="me-2">
+							<img src="{{ asset('assets/images/envelope-outline.svg') }}" alt="Newsletter" class="img-fluid">
+						</span>
+						<span>Dapatkan Tips & Promo Outdoor</span>
+					</h3>
 
-							<form action="#" class="row g-3">
-								<div class="col-auto">
-									<input type="text" class="form-control" placeholder="Enter your name">
-								</div>
-								<div class="col-auto">
-									<input type="email" class="form-control" placeholder="Enter your email">
-								</div>
-								<div class="col-auto">
-									<button class="btn btn-primary">
-										<span class="fa fa-paper-plane"></span>
-									</button>
-								</div>
-							</form>
-
+					<form action="#" class="row g-3">
+						<div class="col-auto">
+							<input type="text" class="form-control" placeholder="Nama lengkap">
 						</div>
-					</div>
+						<div class="col-auto">
+							<input type="email" class="form-control" placeholder="Email aktif">
+						</div>
+						<div class="col-auto">
+							<button class="btn btn-primary">
+								<span class="fa fa-paper-plane"></span>
+							</button>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer Content -->
+		<div class="row g-5 mb-5">
+			<!-- Brand -->
+			<div class="col-lg-4">
+				<div class="mb-4 footer-logo-wrap">
+					<a href="/" class="footer-logo">tendakian<span>.</span></a>
 				</div>
 
-				<div class="row g-5 mb-5">
-					<div class="col-lg-4">
-						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">tendakian<span>.</span></a></div>
-						<p class="mb-4">Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant</p>
+				<p class="mb-4">
+					Tendakian adalah platform penyewaan alat outdoor terpercaya untuk pendakian,
+					camping, dan petualangan alam. Praktis, aman, dan siap menemani perjalananmu.
+				</p>
 
-						<ul class="list-unstyled custom-social">
-							<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
-							<li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
-							<li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
-							<li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
+				<ul class="list-unstyled custom-social">
+					<li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
+					<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
+					<li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
+					<li><a href="#"><span class="fa fa-brands fa-whatsapp"></span></a></li>
+				</ul>
+			</div>
+
+			<!-- Links -->
+			<div class="col-lg-8">
+				<div class="row links-wrap">
+
+					<div class="col-6 col-sm-6 col-md-3">
+						<ul class="list-unstyled">
+							<li><a href="#">Tentang Kami</a></li>
+							<li><a href="#">Cara Sewa</a></li>
+							<li><a href="#">Artikel Outdoor</a></li>
+							<li><a href="#">Kontak</a></li>
 						</ul>
 					</div>
 
-					<div class="col-lg-8">
-						<div class="row links-wrap">
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">About us</a></li>
-									<li><a href="#">Services</a></li>
-									<li><a href="#">Blog</a></li>
-									<li><a href="#">Contact us</a></li>
-								</ul>
-							</div>
+					<div class="col-6 col-sm-6 col-md-3">
+						<ul class="list-unstyled">
+							<li><a href="#">Bantuan</a></li>
+							<li><a href="#">Syarat & Ketentuan</a></li>
+							<li><a href="#">FAQ</a></li>
+						</ul>
+					</div>
 
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Support</a></li>
-									<li><a href="#">Knowledge base</a></li>
-									<li><a href="#">Live chat</a></li>
-								</ul>
-							</div>
+					<div class="col-6 col-sm-6 col-md-3">
+						<ul class="list-unstyled">
+							<li><a href="#">Tenda</a></li>
+							<li><a href="#">Carrier</a></li>
+							<li><a href="#">Sleeping Bag</a></li>
+							<li><a href="#">Kompor & Alat Masak</a></li>
+						</ul>
+					</div>
 
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Jobs</a></li>
-									<li><a href="#">Our team</a></li>
-									<li><a href="#">Leadership</a></li>
-									<li><a href="#">Privacy Policy</a></li>
-								</ul>
-							</div>
-
-							<div class="col-6 col-sm-6 col-md-3">
-								<ul class="list-unstyled">
-									<li><a href="#">Nordic Chair</a></li>
-									<li><a href="#">Kruzo Aero</a></li>
-									<li><a href="#">Ergonomic Chair</a></li>
-								</ul>
-							</div>
-						</div>
+					<div class="col-6 col-sm-6 col-md-3">
+						<ul class="list-unstyled">
+							<li><a href="#">Paket Pendakian</a></li>
+							<li><a href="#">Paket Camping</a></li>
+							<li><a href="#">Perlengkapan Safety</a></li>
+						</ul>
 					</div>
 
 				</div>
+			</div>
+		</div>
 
-				<div class="border-top copyright">
-					<div class="row pt-4">
-						<div class="col-lg-6">
-							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="{{ asset('https://untree.co') }}">Untree.co</a> Distributed By <a hreff="{{ asset('https://themewagon.com') }}">ThemeWagon</a>  <!-- License information: https://untree.co/license/ -->
-            </p>
-						</div>
+		<!-- Copyright -->
+		<div class="border-top copyright">
+			<div class="row pt-4">
+				<div class="col-lg-6">
+					<p class="mb-2 text-center text-lg-start">
+						&copy; <script>document.write(new Date().getFullYear());</script> Tendakian.
+						All Rights Reserved.
+					</p>
+				</div>
 
-						<div class="col-lg-6 text-center text-lg-end">
-							<ul class="list-unstyled d-inline-flex ms-auto">
-								<li class="me-4"><a href="#">Terms &amp; Conditions</a></li>
-								<li><a href="#">Privacy Policy</a></li>
-							</ul>
-						</div>
-
-					</div>
+				<div class="col-lg-6 text-center text-lg-end">
+					<ul class="list-unstyled d-inline-flex ms-auto">
+						<li class="me-4"><a href="#">Syarat & Ketentuan</a></li>
+						<li><a href="#">Kebijakan Privasi</a></li>
+					</ul>
 				</div>
 
 			</div>
-		</footer>
+		</div>
+
+	</div>
+</footer>
 		<!-- End Footer Section -->	
 
 

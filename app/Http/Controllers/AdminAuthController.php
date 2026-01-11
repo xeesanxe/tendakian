@@ -25,7 +25,7 @@ class AdminAuthController extends Controller
                 Auth::logout();
                 return back()->withErrors(['email' => 'Unauthorized']);
             }
-            return redirect()->intended('/admin');
+            return redirect()->route('admin.dashboard');
         }
 
         return back()->withErrors(['email' => 'Invalid credentials']);
