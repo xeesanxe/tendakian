@@ -25,6 +25,7 @@
 	</head>
 
 	<body class="shop-page">
+<!-- Updated shop page layout -->
 
 		<!-- Start Header/Navigation -->
 			<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="tendakian navigation bar">
