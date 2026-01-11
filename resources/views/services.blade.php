@@ -214,13 +214,13 @@
 
 					<!-- Start Column 4 -->
 					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-						<a class="product-item" href="{{ url('/shop') }}">
-							<img src="https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=400&h=300&fit=crop&auto=format" class="img-fluid product-thumbnail">
+						<a class="product-item" href="http://127.0.0.1:8000/shop">
+							<img src="https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=400&amp;h=300&amp;fit=crop&amp;auto=format" class="img-fluid product-thumbnail">
 							<h3 class="product-title">Sleeping Bag</h3>
 							<strong class="product-price">Rp 35.000/hari</strong>
 
 							<span class="icon-cross">
-								<img src="{{ asset('assets/images/cross.svg') }}" class="img-fluid">
+								<img src="http://127.0.0.1:8000/assets/images/cross.svg" class="img-fluid">
 							</span>
 						</a>
 					</div>
