@@ -390,8 +390,6 @@
 							<li><a href="#">Kontak</a></li>
 						</ul>
 					</div>
-<<<<<<< HEAD
-=======
 
 					<div class="col-6 col-sm-6 col-md-3">
 						<ul class="list-unstyled">
@@ -418,12 +416,10 @@
 						</ul>
 					</div>
 
->>>>>>> 0187f94414a322a7b9899091159cd2c65dfb7dd1
 				</div>
 			</div>
 		</div>
 
-<<<<<<< HEAD
 				<div class="border-top copyright">
 					<div class="row pt-4">
 						<div class="col-lg-6">
@@ -431,7 +427,7 @@
             </p>
 						</div>
 					</div>
-=======
+
 		<!-- Copyright -->
 		<div class="border-top copyright">
 			<div class="row pt-4">
@@ -459,7 +455,7 @@
 							</a>
 						</li>
 					</ul>
->>>>>>> 0187f94414a322a7b9899091159cd2c65dfb7dd1
+
 				</div>
 
 			</div>

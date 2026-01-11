@@ -21,10 +21,10 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 		<link href="{{ asset('assets/css/tiny-slider.css') }}" rel="stylesheet">
 		<link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-			<title>tendakian — Shop</title>
+			<title>tendakian — Toko</title>
 	</head>
 
-	<body>
+	<body class="shop-page">
 
 		<!-- Start Header/Navigation -->
 			<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="tendakian navigation bar">
@@ -41,7 +41,7 @@
 						<li class="nav-item ">
 							<a class="nav-link" href="{{ url('/') }}">Home</a>
 						</li>
-						<li class="active"><a class="nav-link" href="{{ url('/shop') }}">Shop</a></li>
+						<li class="active"><a class="nav-link" href="{{ url('/shop') }}">Toko</a></li>
 						<li><a class="nav-link" href="{{ url('/about') }}">About us</a></li>
 						<li><a class="nav-link" href="{{ url('/services') }}">Services</a></li>
 					</ul>
@@ -73,7 +73,8 @@
 					<div class="row justify-content-between">
 						<div class="col-lg-5">
 							<div class="intro-excerpt">
-								<h1>Shop</h1>
+								<h1>Toko Kami</h1>
+								<p>Jelajahi koleksi produk terbaik kami untuk kebutuhan outdoor Anda.</p>
 							</div>
 						</div>
 						<div class="col-lg-7">
@@ -237,8 +238,8 @@
 				</div>
 
 				<p class="mb-4">
-					Tendakian adalah platform penyewaan alat outdoor terpercaya untuk pendakian,
-					camping, dan petualangan alam. Praktis, aman, dan siap menemani perjalananmu.
+					Tendakian adalah toko online terdepan untuk penyewaan dan pembelian alat outdoor berkualitas tinggi.
+					Temukan peralatan terbaik untuk pendakian, camping, dan eksplorasi alam bersama kami.
 				</p>
 
 				<ul class="list-unstyled custom-social">
