@@ -63,12 +63,14 @@ Route::post('/admin/logout', [AdminAuthController::class, 'logout'])->name('admi
 Route::middleware(\App\Http\Middleware\EnsureAdmin::class)->group(function(){
     Route::get('/admin', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index']);
-    Route::get('/admin/orders', [OrderAdminController::class, 'index']);
-    Route::get('/admin/orders/{id}', [OrderAdminController::class, 'show']);
+    
+    // Order management routes
+    Route::get('/admin/orders', [OrderAdminController::class, 'index'])->name('admin.orders.index');
+    Route::get('/admin/orders/{id}', [OrderAdminController::class, 'show'])->name('admin.orders.show');
     Route::post('/admin/orders/{id}/mark-paid', [OrderAdminController::class, 'markPaid'])->name('admin.orders.markPaid');
     Route::post('/admin/orders/{id}/cancel', [OrderAdminController::class, 'cancel'])->name('admin.orders.cancel');
-
-    // Admin product management
+    
+    // Product management routes
     Route::get('/admin/products', [AdminProductController::class, 'index'])->name('admin.products.index');
     Route::get('/admin/products/create', [AdminProductController::class, 'create'])->name('admin.products.create');
     Route::post('/admin/products', [AdminProductController::class, 'store'])->name('admin.products.store');
