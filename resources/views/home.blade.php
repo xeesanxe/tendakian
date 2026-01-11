@@ -19,8 +19,46 @@
 		<!-- Bootstrap CSS -->
 		<link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
 		<link href="{{ asset('assets/css/tiny-slider.css') }}" rel="stylesheet">
 		<link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+		<style>
+			.btn-outline-light {
+				border: 1px solid rgba(255,255,255,0.3);
+				color: rgba(255,255,255,0.8);
+				background: transparent;
+				border-radius: 8px;
+				padding: 6px 12px;
+				font-weight: 500;
+				font-size: 0.875rem;
+				transition: all 0.3s ease;
+			}
+			
+			.btn-outline-light:hover {
+				background: rgba(255,255,255,0.1);
+				border-color: rgba(255,255,255,0.5);
+				color: white;
+				transform: translateY(-1px);
+			}
+			
+			.btn-outline-secondary {
+				border: 1px solid rgba(108, 117, 125, 0.5);
+				color: rgba(108, 117, 125, 0.8);
+				background: transparent;
+				border-radius: 8px;
+				padding: 6px 12px;
+				font-weight: 500;
+				font-size: 0.875rem;
+				transition: all 0.3s ease;
+			}
+			
+			.btn-outline-secondary:hover {
+				background: rgba(108, 117, 125, 0.1);
+				border-color: rgba(108, 117, 125, 0.8);
+				color: #6c757d;
+				transform: translateY(-1px);
+			}
+		</style>
 			<title>tendakian — Home</title>
 	</head>
 
@@ -44,8 +82,6 @@
 						<li><a class="nav-link" href="{{ url('/shop') }}">Shop</a></li>
 						<li><a class="nav-link" href="{{ url('/about') }}">About us</a></li>
 						<li><a class="nav-link" href="{{ url('/services') }}">Services</a></li>
-						<li><a class="nav-link" href="{{ url('/blog') }}">Blog</a></li>
-						<li><a class="nav-link" href="{{ url('/contact') }}">Contact us</a></li>
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
@@ -86,17 +122,17 @@
 					<!-- Start Column 1 -->
 					<div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
 						<h2 class="mb-4 section-title">Go outside and explore.</h2>
-						<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. </p>
-						<p><a href="{{ asset('shop') }}" class="btn">Explore</a></p>
+						<p class="mb-4">Jelajahi alam Indonesia dengan perlengkapan outdoor berkualitas. Dari tenda hingga carrier, semua tersedia untuk petualangan Anda.</p>
+						<p><a href="{{ url('/shop') }}" class="btn">Explore</a></p>
 					</div> 
 					<!-- End Column 1 -->
 
 					<!-- Start Column 2 -->
 <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-    <a class="product-item" href="{{ asset('cart') }}">
-        <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&h=400&fit=crop" class="img-fluid product-thumbnail" alt="Camp Tent">
-        <h3 class="product-title">Nordic Chair</h3>
-        <strong class="product-price">Rp 50.000</strong>
+    <a class="product-item" href="{{ url('/shop') }}">
+        <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&h=400&fit=crop" class="img-fluid product-thumbnail" alt="Tenda Camping">
+        <h3 class="product-title">Tenda Camping</h3>
+        <strong class="product-price">Rp 75.000/hari</strong>
         <span class="icon-cross">
             <img src="{{ asset('assets/images/cross.svg') }}" class="img-fluid">
         </span>
@@ -106,10 +142,10 @@
 
 <!-- Start Column 3 -->
 <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-    <a class="product-item" href="{{ asset('cart') }}">
-        <img src="https://images.unsplash.com/photo-1622260614153-03223fb72052?w=600&h=400&fit=crop" class="img-fluid product-thumbnail" alt="Backpack">
-        <h3 class="product-title">Kruzo Aero Chair</h3>
-        <strong class="product-price">Rp 78.000</strong>
+    <a class="product-item" href="{{ url('/shop') }}">
+        <img src="https://images.unsplash.com/photo-1622260614153-03223fb72052?w=600&h=400&fit=crop" class="img-fluid product-thumbnail" alt="Carrier Backpack">
+        <h3 class="product-title">Carrier & Backpack</h3>
+        <strong class="product-price">Rp 50.000/hari</strong>
         <span class="icon-cross">
             <img src="{{ asset('assets/images/cross.svg') }}" class="img-fluid">
         </span>
@@ -119,10 +155,10 @@
 
 <!-- Start Column 4 -->
 <div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-    <a class="product-item" href="{{ asset('cart') }}">
-        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop" class="img-fluid product-thumbnail" alt="Camping Gear">
-        <h3 class="product-title">Ergonomic Chair</h3>
-        <strong class="product-price">Rp 43.000</strong>
+    <a class="product-item" href="{{ url('/shop') }}">
+        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&h=400&fit=crop" class="img-fluid product-thumbnail" alt="Sleeping Bag">
+        <h3 class="product-title">Sleeping Bag</h3>
+        <strong class="product-price">Rp 35.000/hari</strong>
         <span class="icon-cross">
             <img src="{{ asset('assets/images/cross.svg') }}" class="img-fluid">
         </span>
@@ -276,88 +312,6 @@
 <!-- End Popular Product -->
 
 
-	<!-- Start Blog Section -->
-<div class="blog-section">
-	<div class="container">
-		<div class="row mb-5">
-			<div class="col-md-6">
-				<h2 class="section-title">Artikel Outdoor Terbaru</h2>
-			</div>
-			<div class="col-md-6 text-start text-md-end">
-				<a href="#" class="more">Lihat Semua Artikel</a>
-			</div>
-		</div>
-
-		<div class="row">
-
-			<!-- Blog 1 -->
-			<div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
-				<div class="post-entry">
-					<a href="#" class="post-thumbnail">
-						<img 
-							src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&h=400&fit=crop"
-							alt="Tips Memilih Tenda"
-							class="img-fluid"
-							loading="lazy"
-						>
-					</a>
-					<div class="post-content-entry">
-						<h3><a href="#">Tips Memilih Tenda untuk Pendakian</a></h3>
-						<div class="meta">
-							<span>oleh <a href="#">Admin Tendakian</a></span>
-							<span>pada <a href="#">Jan 5, 2026</a></span>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Blog 2 -->
-			<div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
-				<div class="post-entry">
-					<a href="#" class="post-thumbnail">
-						<img 
-							src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&h=400&fit=crop"
-							alt="Cara Memilih Carrier"
-							class="img-fluid"
-							loading="lazy"
-						>
-					</a>
-					<div class="post-content-entry">
-						<h3><a href="#">Cara Memilih Carrier yang Nyaman</a></h3>
-						<div class="meta">
-							<span>oleh <a href="#">Tim Outdoor</a></span>
-							<span>pada <a href="#">Jan 2, 2026</a></span>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Blog 3 -->
-			<div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0">
-				<div class="post-entry">
-					<a href="#" class="post-thumbnail">
-						<img 
-							src="https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=600&h=400&fit=crop"
-							alt="Perawatan Sleeping Bag"
-							class="img-fluid"
-							loading="lazy"
-						>
-					</a>
-					<div class="post-content-entry">
-						<h3><a href="#">Cara Merawat Sleeping Bag Agar Awet</a></h3>
-						<div class="meta">
-							<span>oleh <a href="#">Admin Tendakian</a></span>
-							<span>pada <a href="#">Dec 28, 2025</a></span>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</div>
-</div>
-<!-- End Blog Section -->
-
 	
 
 		<!-- Start Footer Section -->
@@ -477,9 +431,21 @@
 				</div>
 
 				<div class="col-lg-6 text-center text-lg-end">
-					<ul class="list-unstyled d-inline-flex ms-auto">
-						<li class="me-4"><a href="#">Syarat & Ketentuan</a></li>
-						<li><a href="#">Kebijakan Privasi</a></li>
+					<ul class="list-unstyled d-inline-flex ms-auto align-items-center">
+						<li class="me-3"><a href="#">Syarat & Ketentuan</a></li>
+						<li class="me-3"><a href="#">Kebijakan Privasi</a></li>
+						<li class="me-2">
+							<a href="{{ route('admin.login') }}" class="btn btn-sm btn-outline-light">
+								<i class="bi bi-shield-check me-1"></i>
+								Admin
+							</a>
+						</li>
+						<li>
+							<a href="{{ route('admin.dashboard') }}" class="btn btn-sm btn-outline-secondary">
+								<i class="bi bi-speedometer2 me-1"></i>
+								Dashboard
+							</a>
+						</li>
 					</ul>
 				</div>
 

@@ -15,10 +15,21 @@ class Product extends Model
         'price',
         'stock',
         'image',
+        'is_active',
+    ];
+
+    protected $casts = [
+        'is_active' => 'boolean',
     ];
 
     public function orderItems()
     {
         return $this->hasMany(OrderItem::class);
+    }
+
+    // Scope untuk produk aktif
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', true);
     }
 }

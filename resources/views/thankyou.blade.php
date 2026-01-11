@@ -41,16 +41,14 @@
 						<li class="nav-item ">
 							<a class="nav-link" href="{{ url('/') }}">Home</a>
 						</li>
-						<li><a class="nav-link" href="{{ asset('shop') }}">Shop</a></li>
-						<li><a class="nav-link" href="{{ asset('about') }}">About us</a></li>
-						<li><a class="nav-link" href="{{ asset('services') }}">Services</a></li>
-						<li><a class="nav-link" href="{{ asset('blog') }}">Blog</a></li>
-						<li><a class="nav-link" href="{{ asset('contact') }}">Contact us</a></li>
+						<li><a class="nav-link" href="{{ url('/shop') }}">Shop</a></li>
+						<li><a class="nav-link" href="{{ url('/about') }}">About us</a></li>
+						<li><a class="nav-link" href="{{ url('/services') }}">Services</a></li>
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
 <li><a class="nav-link" href="{{ route('profile') }}"><img src="{{ asset('assets/images/user.svg') }}"></a></li>
-						<li><a class="nav-link" href="{{ asset('cart') }}"><img src="{{ asset('assets/images/cart.svg') }}"></a></li>
+						<li><a class="nav-link" href="{{ url('/cart') }}"><img src="{{ asset('assets/images/cart.svg') }}"></a></li>
 					</ul>
 				</div>
 			</div>
@@ -143,10 +141,10 @@
 						<div class="row links-wrap">
 							<div class="col-6 col-sm-6 col-md-3">
 								<ul class="list-unstyled">
-									<li><a href="#">About us</a></li>
-									<li><a href="#">Services</a></li>
-									<li><a href="#">Blog</a></li>
-									<li><a href="#">Contact us</a></li>
+									<li><a href="#">Tentang Kami</a></li>
+									<li><a href="#">Cara Sewa</a></li>
+									<li><a href="#">Artikel Outdoor</a></li>
+									<li><a href="#">Kontak</a></li>
 								</ul>
 							</div>
 
@@ -169,9 +167,10 @@
 
 							<div class="col-6 col-sm-6 col-md-3">
 								<ul class="list-unstyled">
-									<li><a href="#">Nordic Chair</a></li>
-									<li><a href="#">Kruzo Aero</a></li>
-									<li><a href="#">Ergonomic Chair</a></li>
+									<li><a href="#">Tenda</a></li>
+									<li><a href="#">Carrier</a></li>
+									<li><a href="#">Sleeping Bag</a></li>
+									<li><a href="#">Kompor & Alat Masak</a></li>
 								</ul>
 							</div>
 						</div>

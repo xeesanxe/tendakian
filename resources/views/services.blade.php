@@ -44,8 +44,6 @@
 						<li><a class="nav-link" href="{{ url('/shop') }}">Shop</a></li>
 						<li><a class="nav-link" href="{{ url('/about') }}">About us</a></li>
 						<li class="active"><a class="nav-link" href="{{ url('/services') }}">Services</a></li>
-						<li><a class="nav-link" href="{{ url('/blog') }}">Blog</a></li>
-						<li><a class="nav-link" href="{{ url('/contact') }}">Contact us</a></li>
 					</ul>
 
 					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
@@ -64,14 +62,14 @@
 					<div class="row justify-content-between">
 						<div class="col-lg-5">
 							<div class="intro-excerpt">
-								<h1>Services</h1>
-								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-								<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+								<h1>Our Services</h1>
+								<p class="mb-4">Layanan rental perlengkapan outdoor terlengkap untuk mendukung petualangan Anda. Dari konsultasi hingga pengantaran, kami siap membantu.</p>
+								<p><a href="{{ url('/shop') }}" class="btn btn-secondary me-2">Shop Now</a></p>
 							</div>
 						</div>
 						<div class="col-lg-7">
 							<div class="hero-img-wrap">
-								<img src="{{ asset('assets/images/couch.png') }}" class="img-fluid">
+								<img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=800&h=600&fit=crop" class="img-fluid" alt="Outdoor Services">
 							</div>
 						</div>
 					</div>
@@ -92,8 +90,8 @@
 							<div class="icon">
 								<img src="{{ asset('assets/images/truck.svg') }}" alt="Image" class="imf-fluid">
 							</div>
-							<h3>Fast &amp; Free Shipping</h3>
-							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+							<h3>Antar Jemput</h3>
+							<p>Layanan antar-jemput perlengkapan langsung ke lokasi Anda dengan jadwal yang fleksibel.</p>
 						</div>
 					</div>
 
@@ -102,8 +100,48 @@
 							<div class="icon">
 								<img src="{{ asset('assets/images/bag.svg') }}" alt="Image" class="imf-fluid">
 							</div>
-							<h3>Easy to Shop</h3>
-							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+							<h3>Perlengkapan Lengkap</h3>
+							<p>Koleksi lengkap peralatan outdoor dari tenda, sleeping bag, carrier, hingga peralatan masak.</p>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-6 col-lg-3 mb-4">
+						<div class="feature">
+							<div class="icon">
+								<img src="{{ asset('assets/images/support.svg') }}" alt="Image" class="imf-fluid">
+							</div>
+							<h3>Konsultasi Gratis</h3>
+							<p>Tim ahli kami siap membantu memilih perlengkapan yang tepat sesuai kebutuhan petualangan Anda.</p>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-6 col-lg-3 mb-4">
+						<div class="feature">
+							<div class="icon">
+								<img src="{{ asset('assets/images/return.svg') }}" alt="Image" class="imf-fluid">
+							</div>
+							<h3>Perawatan Berkala</h3>
+							<p>Semua peralatan dirawat dan dicek secara berkala untuk memastikan kondisi prima saat disewa.</p>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-6 col-lg-3 mb-4">
+						<div class="feature">
+							<div class="icon">
+								<img src="{{ asset('assets/images/truck.svg') }}" alt="Image" class="imf-fluid">
+							</div>
+							<h3>Rental Fleksibel</h3>
+							<p>Sistem rental harian dengan durasi yang fleksibel sesuai kebutuhan perjalanan Anda.</p>
+						</div>
+					</div>
+
+					<div class="col-6 col-md-6 col-lg-3 mb-4">
+						<div class="feature">
+							<div class="icon">
+								<img src="{{ asset('assets/images/bag.svg') }}" alt="Image" class="imf-fluid">
+							</div>
+							<h3>Paket Hemat</h3>
+							<p>Tersedia paket bundling untuk grup atau perjalanan panjang dengan harga yang lebih ekonomis.</p>
 						</div>
 					</div>
 
@@ -113,7 +151,7 @@
 								<img src="{{ asset('assets/images/support.svg') }}" alt="Image" class="imf-fluid">
 							</div>
 							<h3>24/7 Support</h3>
-							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+							<p>Dukungan pelanggan 24 jam untuk membantu Anda kapan saja selama perjalanan outdoor.</p>
 						</div>
 					</div>
 
@@ -122,48 +160,8 @@
 							<div class="icon">
 								<img src="{{ asset('assets/images/return.svg') }}" alt="Image" class="imf-fluid">
 							</div>
-							<h3>Hassle Free Returns</h3>
-							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-						</div>
-					</div>
-
-					<div class="col-6 col-md-6 col-lg-3 mb-4">
-						<div class="feature">
-							<div class="icon">
-								<img src="{{ asset('images/truck.svg') }}" alt="Image" class="imf-fluid">
-							</div>
-							<h3>Fast &amp; Free Shipping</h3>
-							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-						</div>
-					</div>
-
-					<div class="col-6 col-md-6 col-lg-3 mb-4">
-						<div class="feature">
-							<div class="icon">
-								<img src="{{ asset('images/bag.svg') }}" alt="Image" class="imf-fluid">
-							</div>
-							<h3>Easy to Shop</h3>
-							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-						</div>
-					</div>
-
-					<div class="col-6 col-md-6 col-lg-3 mb-4">
-						<div class="feature">
-							<div class="icon">
-								<img src="{{ asset('images/support.svg') }}" alt="Image" class="imf-fluid">
-							</div>
-							<h3>24/7 Support</h3>
-							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
-						</div>
-					</div>
-
-					<div class="col-6 col-md-6 col-lg-3 mb-4">
-						<div class="feature">
-							<div class="icon">
-								<img src="{{ asset('images/return.svg') }}" alt="Image" class="imf-fluid">
-							</div>
-							<h3>Hassle Free Returns</h3>
-							<p>Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate.</p>
+							<h3>Pengembalian Mudah</h3>
+							<p>Proses pengembalian yang mudah dan fleksibel dengan sistem pembersihan yang higienis.</p>
 						</div>
 					</div>
 
@@ -180,18 +178,18 @@
 
 					<!-- Start Column 1 -->
 					<div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
-						<h2 class="mb-4 section-title">Crafted with excellent material.</h2>
-						<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. </p>
-						<p><a href="#" class="btn">Explore</a></p>
+						<h2 class="mb-4 section-title">Perlengkapan Berkualitas Tinggi</h2>
+						<p class="mb-4">Semua peralatan outdoor kami dipilih dengan standar kualitas tinggi dan dirawat secara berkala untuk memastikan performa terbaik di setiap petualangan.</p>
+						<p><a href="{{ url('/shop') }}" class="btn">Jelajahi Produk</a></p>
 					</div> 
 					<!-- End Column 1 -->
 
 					<!-- Start Column 2 -->
 					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-						<a class="product-item" href="#">
-							<img src="{{ asset('assets/images/product-1.png') }}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Nordic Chair</h3>
-							<strong class="product-price">$50.00</strong>
+						<a class="product-item" href="{{ url('/shop') }}">
+							<img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=400&h=300&fit=crop&auto=format" class="img-fluid product-thumbnail">
+							<h3 class="product-title">Tenda Dome 4 Orang</h3>
+							<strong class="product-price">Rp 75.000/hari</strong>
 
 							<span class="icon-cross">
 								<img src="{{ asset('assets/images/cross.svg') }}" class="img-fluid">
@@ -202,10 +200,10 @@
 
 					<!-- Start Column 3 -->
 					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-						<a class="product-item" href="#">
-							<img src="{{ asset('assets/images/product-2.png') }}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Kruzo Aero Chair</h3>
-							<strong class="product-price">$78.00</strong>
+						<a class="product-item" href="{{ url('/shop') }}">
+							<img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=300&fit=crop&auto=format" class="img-fluid product-thumbnail">
+							<h3 class="product-title">Carrier 60L</h3>
+							<strong class="product-price">Rp 50.000/hari</strong>
 
 							<span class="icon-cross">
 								<img src="{{ asset('assets/images/cross.svg') }}" class="img-fluid">
@@ -216,13 +214,13 @@
 
 					<!-- Start Column 4 -->
 					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-						<a class="product-item" href="#">
-							<img src="{{ asset('assets/images/product-3.png') }}" class="img-fluid product-thumbnail">
-							<h3 class="product-title">Ergonomic Chair</h3>
-							<strong class="product-price">$43.00</strong>
+						<a class="product-item" href="{{ url('/shop') }}">
+							<img src="https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=400&h=300&fit=crop&auto=format" class="img-fluid product-thumbnail">
+							<h3 class="product-title">Sleeping Bag</h3>
+							<strong class="product-price">Rp 35.000/hari</strong>
 
 							<span class="icon-cross">
-								<img src="{{ asset('images/cross.svg') }}" class="img-fluid">
+								<img src="{{ asset('assets/images/cross.svg') }}" class="img-fluid">
 							</span>
 						</a>
 					</div>
@@ -232,106 +230,6 @@
 			</div>
 		</div>
 		<!-- End Product Section -->
-
-		
-
-		<!-- Start Testimonial Slider -->
-		<div class="testimonial-section before-footer-section">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-7 mx-auto text-center">
-						<h2 class="section-title">Testimonials</h2>
-					</div>
-				</div>
-
-				<div class="row justify-content-center">
-					<div class="col-lg-12">
-						<div class="testimonial-slider-wrap text-center">
-
-							<div id="testimonial-nav">
-								<span class="prev" data-controls="prev"><span class="fa fa-chevron-left"></span></span>
-								<span class="next" data-controls="next"><span class="fa fa-chevron-right"></span></span>
-							</div>
-
-							<div class="testimonial-slider">
-								
-								<div class="item">
-									<div class="row justify-content-center">
-										<div class="col-lg-8 mx-auto">
-
-											<div class="testimonial-block text-center">
-												<blockquote class="mb-5">
-													<p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
-												</blockquote>
-
-												<div class="author-info">
-													<div class="author-pic">
-														<img src="{{ asset('assets/images/person-1.png') }}" alt="Maria Jones" class="img-fluid">
-													</div>
-													<h3 class="font-weight-bold">Maria Jones</h3>
-													<span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div> 
-								<!-- END item -->
-
-								<div class="item">
-									<div class="row justify-content-center">
-										<div class="col-lg-8 mx-auto">
-
-											<div class="testimonial-block text-center">
-												<blockquote class="mb-5">
-													<p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
-												</blockquote>
-
-												<div class="author-info">
-													<div class="author-pic">
-														<img src="{{ asset('images/person-1.png') }}" alt="Maria Jones" class="img-fluid">
-													</div>
-													<h3 class="font-weight-bold">Maria Jones</h3>
-													<span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div> 
-								<!-- END item -->
-
-								<div class="item">
-									<div class="row justify-content-center">
-										<div class="col-lg-8 mx-auto">
-
-											<div class="testimonial-block text-center">
-												<blockquote class="mb-5">
-													<p>&ldquo;Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Integer convallis volutpat dui quis scelerisque.&rdquo;</p>
-												</blockquote>
-
-												<div class="author-info">
-													<div class="author-pic">
-														<img src="{{ asset('images/person-1.png') }}" alt="Maria Jones" class="img-fluid">
-													</div>
-													<h3 class="font-weight-bold">Maria Jones</h3>
-													<span class="position d-block mb-3">CEO, Co-Founder, XYZ Inc.</span>
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div> 
-								<!-- END item -->
-
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End Testimonial Slider -->
 
 		
 

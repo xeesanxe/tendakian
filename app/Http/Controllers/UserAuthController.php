@@ -21,7 +21,14 @@ class UserAuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect('/profile');
+            
+            // Check if user is admin, redirect to admin dashboard
+            if (Auth::user()->is_admin) {
+                return redirect()->route('admin.dashboard');
+            }
+            
+            // Regular user, redirect to user dashboard
+            return redirect()->route('dashboard');
         }
 
         return back()->withErrors([
