@@ -451,6 +451,53 @@
       </form>
     </div>
 
+    <!-- Bulk Actions Toolbar -->
+    <div class="card mb-4" id="bulkActionsCard" style="display: none;">
+      <div class="card-body py-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <span id="selectedCount">0</span> product(s) selected
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-warning" onclick="bulkAction('soft')">
+              <i class="bi bi-archive me-1"></i>
+              Move to Trash
+            </button>
+            <button type="button" class="btn btn-danger" onclick="bulkAction('hard')">
+              <i class="bi bi-trash-fill me-1"></i>
+              Delete Permanently
+            </button>
+            <button type="button" class="btn btn-secondary" onclick="clearSelection()">
+              <i class="bi bi-x me-1"></i>
+              Clear Selection
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="card mb-4">
+      <div class="card-body py-3">
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('admin.products.index') ? 'active' : '' }}" 
+               href="{{ route('admin.products.index') }}">
+              <i class="bi bi-box me-2"></i>
+              All Products
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('admin.products.trashed') ? 'active' : '' }}" 
+               href="{{ route('admin.products.trashed') }}">
+              <i class="bi bi-trash me-2"></i>
+              Trashed Products
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <!-- Products Table -->
     <div class="card">
       <div class="card-body p-0">
@@ -459,17 +506,23 @@
           <table class="table mb-0">
             <thead>
               <tr>
+                <th style="width: 5%">
+                  <input type="checkbox" id="selectAll" class="form-check-input">
+                </th>
                 <th style="width: 8%">ID</th>
                 <th style="width: 25%">Product Details</th>
                 <th style="width: 15%">Image</th>
                 <th style="width: 15%">Price</th>
                 <th style="width: 12%">Stock</th>
-                <th style="width: 25%" class="text-end">Actions</th>
+                <th style="width: 20%" class="text-end">Actions</th>
               </tr>
             </thead>
             <tbody>
               @foreach($products as $p)
               <tr>
+                <td>
+                  <input type="checkbox" name="product_ids[]" value="{{ $p->id }}" class="form-check-input product-checkbox">
+                </td>
                 <td>
                   <span class="product-id">#{{ $p->id }}</span>
                 </td>
@@ -499,27 +552,57 @@
                   @endif
                 </td>
                 <td class="text-end">
-                  <a
-                    class="btn btn-edit"
-                    href="{{ route('admin.products.edit', ['id' => $p->id]) }}"
-                  >
-                    <i class="bi bi-pencil me-1"></i>
-                    Edit
-                  </a>
+                  <div class="btn-group" role="group">
+                    <a
+                      class="btn btn-edit"
+                      href="{{ route('admin.products.edit', ['id' => $p->id]) }}"
+                      title="Edit Product"
+                    >
+                      <i class="bi bi-pencil me-1"></i>
+                      Edit
+                    </a>
 
-                  <form
-                    method="POST"
-                    action="{{ route('admin.products.destroy', ['id' => $p->id]) }}"
-                    style="display:inline-block"
-                    onsubmit="return confirm('Are you sure you want to delete this product?')"
-                  >
-                    @csrf
-                    @method('DELETE')
-                    <button class="btn btn-delete">
-                      <i class="bi bi-trash me-1"></i>
-                      Delete
-                    </button>
-                  </form>
+                    <!-- Dropdown for delete options -->
+                    <div class="btn-group" role="group">
+                      <button type="button" class="btn btn-delete dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi bi-trash me-1"></i>
+                        Delete
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li>
+                          <form
+                            method="POST"
+                            action="{{ route('admin.products.softDelete', ['id' => $p->id]) }}"
+                            style="display:inline-block; width: 100%;"
+                            onsubmit="return confirm('Move this product to trash? You can restore it later.')"
+                          >
+                            @csrf
+                            @method('DELETE')
+                            <button class="dropdown-item" type="submit">
+                              <i class="bi bi-archive me-2"></i>
+                              Move to Trash
+                            </button>
+                          </form>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                          <form
+                            method="POST"
+                            action="{{ route('admin.products.destroy', ['id' => $p->id]) }}"
+                            style="display:inline-block; width: 100%;"
+                            onsubmit="return confirm('⚠️ PERMANENT DELETE: This action cannot be undone! Are you absolutely sure?')"
+                          >
+                            @csrf
+                            @method('DELETE')
+                            <button class="dropdown-item text-danger" type="submit">
+                              <i class="bi bi-trash-fill me-2"></i>
+                              Delete Permanently
+                            </button>
+                          </form>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </td>
               </tr>
               @endforeach
@@ -556,5 +639,108 @@
     </div>
   </div>
 
+  <!-- Bulk Delete Form -->
+  <form id="bulkDeleteForm" method="POST" action="{{ route('admin.products.bulkDelete') }}" style="display: none;">
+    @csrf
+    <input type="hidden" name="delete_type" id="deleteType">
+  </form>
+
+  <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+  <script>
+    // Select All functionality
+    document.getElementById('selectAll').addEventListener('change', function() {
+      const checkboxes = document.querySelectorAll('.product-checkbox');
+      checkboxes.forEach(checkbox => {
+        checkbox.checked = this.checked;
+      });
+      updateBulkActions();
+    });
+
+    // Individual checkbox functionality
+    document.querySelectorAll('.product-checkbox').forEach(checkbox => {
+      checkbox.addEventListener('change', updateBulkActions);
+    });
+
+    function updateBulkActions() {
+      const selectedCheckboxes = document.querySelectorAll('.product-checkbox:checked');
+      const bulkActionsCard = document.getElementById('bulkActionsCard');
+      const selectedCount = document.getElementById('selectedCount');
+      
+      if (selectedCheckboxes.length > 0) {
+        bulkActionsCard.style.display = 'block';
+        selectedCount.textContent = selectedCheckboxes.length;
+      } else {
+        bulkActionsCard.style.display = 'none';
+      }
+
+      // Update "Select All" checkbox state
+      const allCheckboxes = document.querySelectorAll('.product-checkbox');
+      const selectAllCheckbox = document.getElementById('selectAll');
+      
+      if (selectedCheckboxes.length === allCheckboxes.length) {
+        selectAllCheckbox.checked = true;
+        selectAllCheckbox.indeterminate = false;
+      } else if (selectedCheckboxes.length > 0) {
+        selectAllCheckbox.checked = false;
+        selectAllCheckbox.indeterminate = true;
+      } else {
+        selectAllCheckbox.checked = false;
+        selectAllCheckbox.indeterminate = false;
+      }
+    }
+
+    function bulkAction(type) {
+      const selectedCheckboxes = document.querySelectorAll('.product-checkbox:checked');
+      
+      if (selectedCheckboxes.length === 0) {
+        alert('Please select at least one product.');
+        return;
+      }
+
+      let confirmMessage;
+      if (type === 'soft') {
+        confirmMessage = `Move ${selectedCheckboxes.length} product(s) to trash? You can restore them later.`;
+      } else {
+        confirmMessage = `⚠️ PERMANENT DELETE: This will permanently delete ${selectedCheckboxes.length} product(s). This action cannot be undone! Are you absolutely sure?`;
+      }
+
+      if (!confirm(confirmMessage)) {
+        return;
+      }
+
+      // Add selected product IDs to the form
+      const form = document.getElementById('bulkDeleteForm');
+      
+      // Clear existing hidden inputs
+      const existingInputs = form.querySelectorAll('input[name="product_ids[]"]');
+      existingInputs.forEach(input => input.remove());
+
+      // Add selected product IDs
+      selectedCheckboxes.forEach(checkbox => {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'product_ids[]';
+        input.value = checkbox.value;
+        form.appendChild(input);
+      });
+
+      // Set delete type
+      document.getElementById('deleteType').value = type;
+
+      // Submit form
+      form.submit();
+    }
+
+    function clearSelection() {
+      document.querySelectorAll('.product-checkbox').forEach(checkbox => {
+        checkbox.checked = false;
+      });
+      document.getElementById('selectAll').checked = false;
+      updateBulkActions();
+    }
+
+    // Initialize on page load
+    updateBulkActions();
+  </script>
 </body>
 </html>
