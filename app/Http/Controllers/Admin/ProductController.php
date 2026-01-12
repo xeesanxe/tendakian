@@ -99,16 +99,139 @@ class ProductController extends Controller
         
         if ($orderItemsCount > 0) {
             return redirect()->route('admin.products.index')
-                ->with('error', 'Cannot delete product. It is referenced in ' . $orderItemsCount . ' order(s). You can set the product as inactive instead.');
+                ->with('error', "Cannot permanently delete product '{$product->name}'. It is referenced in {$orderItemsCount} order(s). You can set the product as inactive or use soft delete instead.");
         }
         
-        // Delete image if exists
-        if ($product->image) {
-            \Illuminate\Support\Facades\Storage::disk('public')->delete($product->image);
+        try {
+            // Delete image if exists
+            if ($product->image && \Illuminate\Support\Facades\Storage::disk('public')->exists($product->image)) {
+                \Illuminate\Support\Facades\Storage::disk('public')->delete($product->image);
+            }
+            
+            // Hard delete (permanent)
+            $productName = $product->name;
+            $product->forceDelete();
+            
+            return redirect()->route('admin.products.index')
+                ->with('success', "Product '{$productName}' has been permanently deleted!");
+                
+        } catch (\Exception $e) {
+            return redirect()->route('admin.products.index')
+                ->with('error', 'Failed to delete product: ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Soft delete product (recommended for products with order history)
+     */
+    public function softDelete($id)
+    {
+        try {
+            $product = Product::findOrFail($id);
+            $productName = $product->name;
+            
+            // Soft delete - keeps data but marks as deleted
+            $product->delete();
+            
+            return redirect()->route('admin.products.index')
+                ->with('success', "Product '{$productName}' has been moved to trash. You can restore it later if needed.");
+                
+        } catch (\Exception $e) {
+            return redirect()->route('admin.products.index')
+                ->with('error', 'Failed to delete product: ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Restore soft deleted product
+     */
+    public function restore($id)
+    {
+        try {
+            $product = Product::withTrashed()->findOrFail($id);
+            
+            if (!$product->trashed()) {
+                return redirect()->route('admin.products.index')
+                    ->with('error', 'Product is not deleted.');
+            }
+            
+            $product->restore();
+            
+            return redirect()->route('admin.products.index')
+                ->with('success', "Product '{$product->name}' has been restored successfully!");
+                
+        } catch (\Exception $e) {
+            return redirect()->route('admin.products.index')
+                ->with('error', 'Failed to restore product: ' . $e->getMessage());
+        }
+    }
+
+    /**
+     * Show trashed (soft deleted) products
+     */
+    public function trashed(Request $request)
+    {
+        $q = $request->query('q');
+        
+        $query = Product::onlyTrashed();
+        
+        if ($q) {
+            $query->where('name', 'like', '%'.$q.'%')->orWhere('sku','like','%'.$q.'%');
         }
         
-        $product->delete();
-        return redirect()->route('admin.products.index')->with('success', 'Product deleted successfully!');
+        $products = $query->orderBy('deleted_at','desc')->paginate(12);
+        
+        return view('admin.products.trashed', compact('products','q'));
+    }
+
+    /**
+     * Bulk delete products
+     */
+    public function bulkDelete(Request $request)
+    {
+        $request->validate([
+            'product_ids' => 'required|array',
+            'product_ids.*' => 'exists:products,id',
+            'delete_type' => 'required|in:soft,hard'
+        ]);
+
+        $productIds = $request->product_ids;
+        $deleteType = $request->delete_type;
+        
+        try {
+            if ($deleteType === 'hard') {
+                // Check if any products are used in orders
+                $usedInOrders = \App\Models\OrderItem::whereIn('product_id', $productIds)->exists();
+                
+                if ($usedInOrders) {
+                    return redirect()->back()
+                        ->with('error', 'Some products cannot be permanently deleted because they are referenced in orders. Use soft delete instead.');
+                }
+                
+                // Delete images for hard delete
+                $products = Product::whereIn('id', $productIds)->get();
+                foreach ($products as $product) {
+                    if ($product->image && \Illuminate\Support\Facades\Storage::disk('public')->exists($product->image)) {
+                        \Illuminate\Support\Facades\Storage::disk('public')->delete($product->image);
+                    }
+                }
+                
+                // Hard delete
+                $deletedCount = Product::whereIn('id', $productIds)->forceDelete();
+                $message = "Successfully permanently deleted {$deletedCount} product(s).";
+                
+            } else {
+                // Soft delete
+                $deletedCount = Product::whereIn('id', $productIds)->delete();
+                $message = "Successfully moved {$deletedCount} product(s) to trash.";
+            }
+            
+            return redirect()->back()->with('success', $message);
+            
+        } catch (\Exception $e) {
+            return redirect()->back()
+                ->with('error', 'Failed to delete products: ' . $e->getMessage());
+        }
     }
 
     public function store(Request $request)
